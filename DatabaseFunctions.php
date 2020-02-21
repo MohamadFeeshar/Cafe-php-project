@@ -8,9 +8,9 @@ class Database {
     {
         try {
             $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
-            echo "hello";
+            // echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
-            echo "hello";
+            // echo "hello";
             $this->$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
@@ -98,6 +98,17 @@ class Database {
         } 
 
         return $allOrders;
+    }
+
+    public function getAllUsers()
+    {
+        $allUsers = array();
+        $sql = "SELECT user_id, user_name, room, profile_pic, ext FROM user;";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute();
+        $allUsers = $stmt->fetchAll();
+
+        return $allUsers;
     }
 
 }

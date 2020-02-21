@@ -3,7 +3,7 @@ require_once('../DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){
-    $db = new Database('localhost', 'phpmyadmin', 'phpmyadmin', 'cafedb');
+    $db = new Database('127.0.0.1', 'root', '', 'cafedb');
    $GLOBALS[$orders]=$db->getAllOrders();
    renderOrders($GLOBALS[$orders]);
 }
