@@ -3,7 +3,7 @@ require_once('../DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){
-    $db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+    $db = new Database('localhost', 'phpmyadmin', 'phpmyadmin', 'cafedb');
    $GLOBALS[$orders]=$db->getAllOrders();
    renderOrders($GLOBALS[$orders]);
 }
@@ -35,24 +35,33 @@ getOrders();
 //         )
 //      );
 
-function renderOrders($orders){ 
-        foreach ($orders as $key => $value) {     
-            echo '<tr>';  
-            foreach ($value as $sub_key => $sub_val) {                       
-              
-                if (is_array($sub_val)) {         
-                      foreach ($sub_val as $k => $v) { 
-                        $items.= "$k = $v ";                 
-                    } 
-                    echo '<td>' .$items. '</td>'; 
-                } else {             
-                    echo '<td>' .$sub_val .'</td>'; 
-                }      
-                
-            } 
-            echo '</tr>';
+function renderOrders($orders){
+    echo '<table>
+            <tr>
+            <th> Date </th>
+            <th> Name </th>
+            <th> Room </th>
+            <th> Ext  </th>
+            <th> Action </th>
+            <th> Items  </th>
+        </tr>';
+    foreach ($orders as $key => $value) {     
+        echo '<tr>';  
+        foreach ($value as $sub_key => $sub_val) {                       
+            
+            if (is_array($sub_val)) {         
+                    foreach ($sub_val as $k => $v) { 
+                    $items.= "$k = $v ";                 
+                } 
+                echo '<td>' .$items. '</td>'; 
+            } else {             
+                echo '<td>' .$sub_val .'</td>'; 
+            }      
+            
         } 
-        echo '</table></body></html>';
+        echo '</tr>';
+    } 
+    echo '</table></body></html>';
 }
 
 
@@ -80,17 +89,7 @@ echo $html = <<< TMP
 TMP;
 
 echo '<h1>' .$title .'</h1>';
-echo $table = <<< TMP
-    <table>
-        <tr>
-        <th> Date </th>
-        <th> Name </th>
-        <th> Room </th>
-        <th> Ext  </th>
-        <th> Action </th>
-        <th> Items  </th>
-    </tr>
-TMP;
+
 
 
 
