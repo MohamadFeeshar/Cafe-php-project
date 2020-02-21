@@ -74,6 +74,30 @@ class Database {
         return $allProducts;
     }
 
+    public function getAllOrders()
+    {
+        $allOrders = array();
+        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute();
+        $allOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($allOrders as $key => $value) {     
+            
+            $order_id = $value['order_id'];
+            $sql = "SELECT p.product_name, p.price, op.quantity FROM product p, order_product op WHERE p.product_id = op.product_id AND op.order_id = :order_id;";
+            $stmt = $this->$connection->prepare($sql);
+            $stmt->bindParam(":order_id", $order_id);
+            $stmt->execute();
+            $products_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $allOrders[$key]["items"] = $products_list;
+            
+        } 
+
+        return $allOrders;
+    }
+
 }
 
 $db = new Database('127.0.0.1', 'root', '', 'cafedb');

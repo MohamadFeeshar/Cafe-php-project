@@ -4,7 +4,7 @@ USE cafedb;
 
 CREATE TABLE user (user_id INT AUTO_INCREMENT PRIMARY KEY, user_name VARCHAR(100), email VARCHAR(50), user_password VARCHAR(200), room VARCHAR(20), ext INT, user_type VARCHAR(10), profile_pic VARCHAR(200));
 
-CREATE TABLE orders (order_id INT AUTO_INCREMENT PRIMARY KEY, order_status VARCHAR(20), order_date DATE, room VARCHAR(20), amount INT, notes VARCHAR(300), user_id INT, FOREIGN KEY (user_id) REFERENCES user(user_id));
+CREATE TABLE orders (order_id INT AUTO_INCREMENT PRIMARY KEY, order_status VARCHAR(20), order_date DATETIME, room VARCHAR(20), amount FLOAT, notes VARCHAR(300), user_id INT, FOREIGN KEY (user_id) REFERENCES user(user_id));
 
 CREATE TABLE category (category_id INT AUTO_INCREMENT PRIMARY KEY, category_name VARCHAR(50));
 
