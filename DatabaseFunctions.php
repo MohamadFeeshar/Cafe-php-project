@@ -8,11 +8,13 @@ class Database {
     {
         try {
             $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
-
+            echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
+            echo "hello";
             $this->$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
+            echo "hello";
             echo $sql . "<br>" . $e->getMessage();
         }
     }
@@ -100,6 +102,6 @@ class Database {
 
 }
 
-$db = new Database('127.0.0.1', 'root', '', 'cafedb');
+// $db = new Database('127.0.0.1', '', '123456', 'cafedb');
 
 ?>
