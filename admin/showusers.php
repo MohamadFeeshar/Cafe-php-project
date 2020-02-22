@@ -64,7 +64,18 @@ getUsers();
 </head>
 
 <body>
-
+<nav>
+<ul>
+    <li><a>Home</a></li>
+    <li><a>Products</a></li>
+    <li><a>Users</a></li>
+    <li><a>Manual Order</a></li>
+    <li><a>Checks</a></li>
+</ul>
+<div id="admin">
+<a>Admin</a>
+</div>
+</nav>
 </body>
 
 </html>
