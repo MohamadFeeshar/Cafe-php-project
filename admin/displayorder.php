@@ -3,57 +3,44 @@ require_once('../DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){
-    $db = new Database('127.0.0.1', 'root', '', 'cafedb');
-   $GLOBALS[$orders]=$db->getAllOrders();
-   renderOrders($GLOBALS[$orders]);
+    $db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+    $GLOBALS[$orders]=$db->getAllOrders();       
+    renderOrders($GLOBALS[$orders]);
 }
 getOrders();
-// $orders = array(
-//     array(
-//         "date" => "2015/02/02 10:30AM",  
-//         "Name" => "Abdulrahman",  
-//         "Room" => "5", 
-//         "Ext" => "6506",
-//         "Action" => "deliver",
-//         "items" => array( 
-//             "tea" => "2",
-//             "Nescafe" => "2", 
-//             "Cola" => "1",           
-//     ) 
-//     ),
-//     array(
-//         "date" => "2015/02/02 10:30AM",  
-//         "Name" => "Abdulrahman",  
-//         "Room" => "5", 
-//         "Ext" => "6506",
-//         "Action" => "deliver",
-//         "items" => array( 
-//             "tea" => "2",
-//             "Nescafe" => "2", 
-//             "Cola" => "1",           
-//          ) 
-//         )
-//      );
+
 
 function renderOrders($orders){
     echo '<table>
-            <tr>
-            <th> Date </th>
-            <th> Name </th>
-            <th> Room </th>
+            <tr>         
+            <th> Date </th>  
+            <th> Name </th>       
+            <th> Room </th>           
             <th> Ext  </th>
-            <th> Action </th>
-            <th> Items  </th>
+            <th> Total price </th>
+            
         </tr>';
     foreach ($orders as $key => $value) {     
         echo '<tr>';  
-        foreach ($value as $sub_key => $sub_val) {                       
-            
+        foreach ($value as $sub_key => $sub_val) {                     
+            if($sub_key=="order_id")continue;
             if (is_array($sub_val)) {         
                     foreach ($sub_val as $k => $v) { 
-                    $items.= "$k = $v ";                 
+                        if (is_array($v)) {                              
+                            
+                            foreach ($v as $k => $v) { 
+                                
+                                 if($k=="price")$items.= "price=";
+                                 elseif($k=="quantity")$items.= "quantity=";                                 
+                                  $items.= " $v ";   
+                                
+                            }
+                            
+                        }              
                 } 
-                echo '<td>' .$items. '</td>'; 
+                echo '<tr > <td colspan=5 rowspan=1>' .$items. '</td></tr>'; 
+                $items="";
+                // echo '<td>' .$items. '</td>'; 
             } else {             
                 echo '<td>' .$sub_val .'</td>'; 
             }      
