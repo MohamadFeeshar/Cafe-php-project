@@ -27,7 +27,7 @@ $myTest=[
 
 <section >
 
-<div style="overflow:auto;height:400px;overflow-x: hidden; margin-left:30%;margin-right:30%;">
+<div style="overflow:auto;height:400px;overflow-x: hidden; margin: 2% 6%;width: 40%;">
 <table id="products">
     <tr>
     <th> Product </th>    
