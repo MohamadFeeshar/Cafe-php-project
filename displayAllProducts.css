@@ -1,23 +1,93 @@
-
+body
+{
+  font-family: "sans-serif";
+  background-image:url("coffe.jpg") ;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 #products {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+    border-collapse: separate;
+    height: 100%;
   }
   
   #products td, #products th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
   }
   
-  #products tr:nth-child(even){background-color: #f2f2f2;}
+  #products tr:nth-child(even){background-color: #beb571;}
+  #products tr:nth-child(odd){background-color: #e9c97f;}
+  
   
   #products tr:hover {background-color: #ddd;}
   
   #products th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #95a979;
+    color: whitesmoke;
+    font-size: 20px;
+
   }
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: whitesmoke;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .deletebtn
+ {
+    background-color: whitesmoke; 
+    color: black; 
+    border: 2px solid #f44336;
+  }
+  .deletebtn:hover {
+    background-color: #f44336;
+    color: whitesmoke;
+  }
+
+  .updatebtn {
+    background-color: whitesmoke; 
+    color: black; 
+    border: 2px solid #4CAF50;
+  }
+  .updatebtn:hover {
+    background-color: #4CAF50;
+    color: whitesmoke;
+  }
+  .availablebtn {
+    background-color: whitesmoke; 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  
+  .availablebtn:hover {
+    background-color: #008CBA;
+    color: whitesmoke;
+  }
+  .allProductLink
+  {
+    float:right;
+    margin-right:30px;
+    background:none;
+    color: whitesmoke;
+    width: 100px;
+    border: none;
+  }
+  .allProductLink:hover
+  {
+    color:#95a979;
+    font-size: 90%;
+  }
+
