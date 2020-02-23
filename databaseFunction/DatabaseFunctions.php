@@ -111,6 +111,39 @@ class Database {
 
         return $allUsers;
     }
+    public function getAllCategories(){
+        $allCategories=array();
+        $sql="select * from category";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute();
+        $allCategories = $stmt->fetchAll();
+        
+        return $allCategories;
+
+    }
+    public function addCategory($name){
+        $sql="insert into category(category_name) values(?)";
+        $stmt = $this->$connection->prepare($sql);
+        try{       
+        $val=$stmt->execute([$name]);      
+        
+        }
+        catch (Exception $e){
+          
+        }
+        return $val;
+    }
+    public function addProduct($name,$img="",$price="",$category_id){
+        $sql="insert into product(product_name,product_img,price,available,category_id) values(?,?,?,?,?)";
+        $stmt = $this->$connection->prepare($sql);
+        try{       
+        $val=$stmt->execute([$name,$img,$price,"available",$category_id]);              
+        }
+        catch (Exception $e){
+          
+        }
+        return $val;
+    }
 
 }
 
