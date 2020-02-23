@@ -60,8 +60,8 @@ function renderUsers($users)
 <?php  include("../header.php");?>
 
 <section>
-    <h1 style="margin-left:2%;margin-bottom:0;margin-top:1%;font-size: 3em;color:#ffffcc;"> All Users </h1>
-    <button class="addLink">add user ?</button>  
+    <h1 class="pageTitle"> All Users </h1>
+    <buttoan class="addLink">add user ?</a>  
     <br>
     </div>
 </section>
@@ -79,7 +79,8 @@ function renderUsers($users)
 
     <table id="tableImage">
 
-    <tr><td colspan="2"><img src="../imag/users.jpeg" alt="pepsi" height="85%" width="80%" style="border: 2px solid #ddd;"></td> </tr>
+    <tr><td colspan="2"><img src="../imag/users.jpeg" alt="pepsi" height="40%" width="60%" style="border: 2px solid #ddd;"></td> </tr>
+    <tr><td colspan="2"><img src="../imag/user2.jpg" alt="pepsi" height="50%" width="80%" style="border: 2px solid #ddd;"></td> </tr>
    
     </table>
     </div>

@@ -10,7 +10,7 @@ $myTest=$dbObject->getAllProducts();
 <?php  include("../header.php");?>
 
 <section>
-    <h1 style="margin-left:2%;margin-bottom:0;margin-top:1%;font-size: 3em;color:#ffffcc;"> All Products </h1>
+    <h1 class="pageTitle"> All Products </h1>
     <button class="addLink">add product ?</button>  
     <br>
     </div>
@@ -46,7 +46,7 @@ $myTest=$dbObject->getAllProducts();
 
     <table id="tableImage">
 
-    <tr ><td colspan="2"><img src="../imag/img4.jpg" alt="pepsi" height="60%" width="80%" style="border: 2px solid #ddd;"></td> </tr>
+    <tr ><td colspan="2"><img src="../imag/img4.jpg" alt="pepsi" height="50%" width="70%" style="border: 2px solid #ddd;"></td> </tr>
     <tr><td><img src="../imag/img1.jpeg" alt="coffe" height="80%" width="90%" style="border: 2px solid #ddd; border-radius:10px ;transform: rotate(10deg);"></td>
     <td rowspan="0"><img src="../imag/img3.jpg" alt="juice" height="30%" width="100%" style="border: 2px solid #ddd; border-radius:10px ;transform: rotate(-8deg);"></td> 
     </tr>
@@ -59,7 +59,7 @@ $myTest=$dbObject->getAllProducts();
 <?php include("../footer.php");?>
 
 <?php
-$currentPage="prodPage";
+$currentPage="product";
 echo '<style type="text/css">
    #prodPage{
     background-color:#6f8c76;
