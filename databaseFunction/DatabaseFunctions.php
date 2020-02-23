@@ -7,7 +7,8 @@ class Database {
     public function __construct($dbhost='localhost', $dbuser='root', $dbpass='', $dbname='')
     {
         try {
-            $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
+            $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";port=3306;";
+            //$dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
             // echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
             // echo "hello";

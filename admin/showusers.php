@@ -1,22 +1,20 @@
 <?php
 
-require_once('../DatabaseFunctions.php');
+require_once('../databaseFunction/DatabaseFunctions.php');
 $users;
 
 function getUsers()
 {
-    $db = new Database("127.0.0.1", "root", "123456", "cafedb");
+
+    $db = new Database("127.0.0.1", "test", "test", "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
 }
 
 function renderUsers($users)
 {
-    echo '<table>
+    echo '<table id="data">
     <thead>
-        <tr>
-            <th colspan="5">All Users</th>
-        </tr>
         <tr>
             <th>Name</th>
             <th>Room</th>
@@ -37,8 +35,11 @@ function renderUsers($users)
         echo '<td>'.$user['room'].'</td>';
         echo "<td> <img src= \"".$user['profile_pic']."\"/> </td>";
         echo '<td>'.$user['ext'].'</td>';
-        echo "<td> <a class=\"edit\" href=\"editUser.php?id=".$user['user_id']."\">Edit</a> &emsp;";
-        echo "<a class=\"delete\" href=\"deleteUser.php?id=".$user['user_id']."\">Delete</a> </td>";
+        //echo "<td> <a class=\"edit\" href=\"editUser.php?id=".$user['user_id']."\">Edit</a> &emsp;";
+        //echo "<a class=\"delete\" href=\"deleteUser.php?id=".$user['user_id']."\">Delete</a> </td>";
+        echo "<td> <button class='button updatebtn'> Update </button>";
+        echo "<button class='button deletebtn'> Delete  </button> </td>"; 
+    
         echo '</tr>';
     }
     
@@ -47,35 +48,70 @@ function renderUsers($users)
 
 
 
+
+
 }
 
-getUsers();
 
 ?>
 
+<!DOCTYPE Html>
+<html>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php  include("../header.php");?>
 
-<head>
-    <meta charset="UTF-8">
-    <title>All Users</title>
-    <link rel="stylesheet" href="styleUsersTable.css">
-</head>
+<section>
+    <h1 class="pageTitle"> All Users </h1>
+    <buttoan class="addLink">add user ?</a>  
+    <br>
+    </div>
+</section>
 
-<body>
-<nav>
-<ul>
-    <li><a>Home</a></li>
-    <li><a>Products</a></li>
-    <li><a>Users</a></li>
-    <li><a>Manual Order</a></li>
-    <li><a>Checks</a></li>
-</ul>
-<div id="admin">
-<a>Admin</a>
-</div>
-</nav>
-</body>
 
-</html>
+
+<section>
+<div class="contentDisPlayall">
+    
+ <?php  getUsers(); ?> 
+
+
+
+
+
+    <table id="tableImage">
+
+    <tr><td colspan="2"><img src="../imag/users.jpeg" alt="pepsi" height="40%" width="60%" style="border: 2px solid #ddd;"></td> </tr>
+    <tr><td colspan="2"><img src="../imag/user2.jpg" alt="pepsi" height="50%" width="80%" style="border: 2px solid #ddd;"></td> </tr>
+   
+    </table>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php include("../footer.php");?>
+
+<?php
+$currentPage="userPage";
+echo '<style type="text/css">
+   #userPage{
+    background-color:#6f8c76;
+    color:white
+   }
+   </style>';
+?> 
+

@@ -1,0 +1,111 @@
+#data {
+  border-collapse: separate;
+  height: 100%;
+  width: 55%;
+}
+  
+#data td, #data th {
+  border: 1px solid #ddd;
+  padding: 0px;
+  text-align: center;
+  font-size: 12px;
+
+}
+  
+#data tr:nth-child(even){background-color: #beb571;}
+#data tr:nth-child(odd){background-color: #e9c97f;}
+#data tr:hover {background-color: #ddd;}
+
+#data th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #95a979;
+  color: whitesmoke;
+  font-size: 20px;
+
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: whitesmoke;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.deletebtn
+{
+  background-color: whitesmoke; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+.deletebtn:hover {
+  background-color: #f44336;
+  color: whitesmoke;
+}
+
+.updatebtn {
+  background-color: whitesmoke; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+.updatebtn:hover {
+  background-color: #4CAF50;
+  color: whitesmoke;
+}
+.availablebtn {
+  background-color: whitesmoke; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.availablebtn:hover {
+  background-color: #008CBA;
+  color: whitesmoke;
+}
+.addLink
+{
+  float:right;
+  margin-right:660px;
+  background:none;
+  color: whitesmoke;
+  width: 100px;
+  border: none;
+}
+.addLink:hover
+{
+  color:#95a979;
+  font-size: 90%;
+}
+
+.contentDisPlayall
+{
+  margin: 2%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+
+}
+#tableImage
+{
+  width:40%;
+  margin-left: 90px ;
+}
+#tableImage tr,td
+{
+  padding: 10px ;
+}
+.pageTitle
+{
+  margin-left:2%;
+  margin-bottom:0;
+  margin-top:1%;
+  font-size: 3em;
+  color:#ffffcc;
+}
