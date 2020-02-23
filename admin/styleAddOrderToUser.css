@@ -1,18 +1,8 @@
-/* 
-body {
-    display: flex;
-    flex-direction: column;    
-}
-
-
-form {
-    padding: 30px;
-    margin: 10px;
-} */
 
 .orderedItems {
     height: 15rem;
     width: auto;
+    overflow-y: scroll;
 }
 
 .addOrderForm {
@@ -69,6 +59,9 @@ textarea {
 }
 
 .products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     border: solid;
     height: 80%;
     width: 100%;
@@ -77,8 +70,8 @@ textarea {
 .productHolder {
     margin: 5px;
     padding: 2px;
-    width: 9rem;
-    height: 9rem;
+    width: 13rem;
+    height: 13rem;
     border: solid;
 }
 
@@ -99,8 +92,9 @@ img {
     flex-direction: row;
     border: solid;
     width: 100%;
-    height: 20%;
+    height: 20% auto;
     padding: 2px;
+    margin-bottom: 5px;
 }
 
 .itemHolder .itemName {
@@ -109,7 +103,7 @@ img {
     width: 60%;
 }
 
-.itemHolder .itemPrice {
+.itemHolder .itemQuantity {
     font-size: large;
     margin: 5px;
 }
