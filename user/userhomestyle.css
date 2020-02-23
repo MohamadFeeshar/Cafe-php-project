@@ -1,0 +1,49 @@
+body {
+    background-color: aliceblue;
+}
+
+.orderProcess {
+    border: 2px solid black;
+    height: 100%;
+}
+
+.makeBorder{
+    border-top: 2px solid black;
+}
+
+.make_price{
+    font-size: x-large;
+    float: right;
+}
+
+.align_btn{
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: large;
+    margin-left: 82px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.choose_text{
+    color: white;
+    background-color: crimson;
+    font-family: Sans;
+    text-align: center;
+}
+
+.align_product{
+    text-align: center;
+}
+
+.align_img{
+    margin-top: 120px;
+}
+
+.add_products{
+    display: block;
+}
