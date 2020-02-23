@@ -1,26 +1,29 @@
-body {
-  margin: 0;
-  font-family: "sans-serif";
-  background-image:url("../imag/coffe.jpg") ;
-  background-repeat: repeat;
+*
+{
+  margin:0;
+  padding:0;
+}
+body{
+  height: 100vh;
+  font-family: "inherit;";
+  background-image:url("../imag/t1.jpg") ;
+  background-repeat: no-repeat;
   background-size: 100%;
+  background-color:#D5BDAA ;
 }
 .topnav {
   overflow: hidden;
-  background-color: #90463e;
+  background-color: #43223A;
 }
-
 .topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 22px;
 }
-
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
-

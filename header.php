@@ -5,7 +5,6 @@ $currentPage="home";
 <head>
 <title>Cafe PHP Project</title>
 <link rel="stylesheet" href="../CSS/header.css">
-<link rel="stylesheet" href="../CSS/footer.css">
 <link rel="stylesheet" href="../CSS/displayAll.css">
     
 </head>

@@ -12,20 +12,14 @@ function getUsers()
 
 function renderUsers($users)
 {
-    echo '<table id="data">
-    <thead>
+    echo '<table id="data" >
         <tr>
             <th>Name</th>
             <th>Room</th>
             <th>Image</th>
             <th>Ext.</th>
             <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="contact_table_body">
-        <!-- <tr>
-            
-        </tr> -->';
+        </tr>';
 
 
     foreach ($users as $user) {
@@ -42,8 +36,8 @@ function renderUsers($users)
         echo '</tr>';
     }
     
-    echo '</tbody>
-    </table>';    
+   
+    echo '</table>';    
 
 
 
@@ -59,32 +53,25 @@ function renderUsers($users)
 
 <?php  include("../header.php");?>
 
-<section>
-    <h1 class="pageTitle"> All Users </h1>
-    <buttoan class="addLink">add user ?</a>  
-    <br>
+<div class="main">
+    <section>
+        <h1 class="pageTitle"> All Users </h1>
+        <button class="addLink">add user ?</button>  
+        <br>
+    </section>
+
+
+
+    <section class="content" >
+     <?php  getUsers(); ?> 
+
+
+
+    </section>
     </div>
-</section>
 
-
-
-<section>
-<div class="contentDisPlayall">
-    
- <?php  getUsers(); ?> 
-
-
-
-
-
-    <table id="tableImage">
-
-    <tr><td colspan="2"><img src="../imag/users.jpeg" alt="pepsi" height="40%" width="60%" style="border: 2px solid #ddd;"></td> </tr>
-    <tr><td colspan="2"><img src="../imag/user2.jpg" alt="pepsi" height="50%" width="80%" style="border: 2px solid #ddd;"></td> </tr>
-   
-    </table>
-    </div>
-</section>
+</body>
+</html>
 
 
 
@@ -99,10 +86,6 @@ function renderUsers($users)
 
 
 
-
-
-
-<?php include("../footer.php");?>
 
 <?php
 $currentPage="userPage";
