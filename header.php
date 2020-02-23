@@ -7,6 +7,7 @@
 <body>
 <header>
 <div class="topnav">
+
   <form action="../validateDirection.php" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="source" value="header">
   <button id="homePage" name="home">Home</button>
@@ -15,5 +16,6 @@
   <button id="manualPage" name="MO">Manual Order</button>
   <button id="checksPage" name="checks">Checks </button>
    </form>
+
 </div>
 </header>

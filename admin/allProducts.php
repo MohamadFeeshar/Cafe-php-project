@@ -1,6 +1,18 @@
 <?php
-include ("../databaseFunction/DatabaseFunctions.php");
-$dbObject= new Database('localhost', 'test', 'test', 'cafedb');
+include('../login/login.php'); // Includes Login Script
+
+if(isset($_SESSION['login_user'])){
+    if($_SESSION['user_type']=='user'){
+      header("location: ../login");     
+    } 
+}
+else {
+  header("location: ../login");
+}
+
+
+require_once('../databaseFunction/DatabaseFunctions.php');
+$dbObject= new Database('localhost', 'root', '123456', 'cafedb');
 $myTest=$dbObject->getAllProducts();
 ?>
 

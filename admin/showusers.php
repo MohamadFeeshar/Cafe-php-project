@@ -1,12 +1,21 @@
 <?php
+include('../login/login.php'); // Includes Login Script
 
+if(isset($_SESSION['login_user'])){
+    if($_SESSION['user_type']=='user'){
+      header("location: ../login");     
+    } 
+}
+else {
+  header("location: ../login");
+}
 require_once('../databaseFunction/DatabaseFunctions.php');
 $users;
 
 function getUsers()
 {
 
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    $db = new Database("127.0.0.1", "root", "123456", "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
 }
