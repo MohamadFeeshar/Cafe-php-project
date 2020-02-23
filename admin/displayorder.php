@@ -1,5 +1,15 @@
 <?php 
-require_once('../DatabaseFunctions.php');
+include('../login/login.php'); // Includes Login Script
+
+if(isset($_SESSION['login_user'])){
+    if($_SESSION['user_type']=='user'){
+      header("location: ../login");     
+    } 
+}
+else {
+  header("location: ../login");
+}
+require_once('../databaseFunction/DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){

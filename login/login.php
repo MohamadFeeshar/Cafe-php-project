@@ -25,9 +25,11 @@ $res=$db->login($username,$password);
 if(count($res)>0){
     $_SESSION['login_user']=$username; // Initializing Session
     $_SESSION['user_type']=$res[0]['user_type'];
-    echo $_SESSION['user_type'];
-        //  header("location: profile.php"); // Redirecting To Other Page
-}
+    if($_SESSION['user_type']=="user"){
+        header("location: ../user/userhome.php");
+    }
+    else  header("location: ../admin/home.php");
+}    
 else {
 $error = "Username or Password is invalid";
 }

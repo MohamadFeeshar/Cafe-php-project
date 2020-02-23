@@ -16,5 +16,6 @@ $currentPage="home";
   <a id="userPage" href="#">Users</a>
   <a id="manualPage" href="#">Manual Order</a>
   <a id="checksPage" href="#">Checks </a>
+  <a id="checksPage" href="../logout.php">logout </a>
 </div>
 </header>

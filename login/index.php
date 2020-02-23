@@ -3,7 +3,13 @@
 include('login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
-// header("location: profile.php");
+    if($_SESSION['user_type']=='user'){
+        header("location: ../user/userhome.php");    
+    }
+    else {
+        header("location: ../admin/home.php");   
+    }
+ 
 }
 ?>
 <!DOCTYPE html>

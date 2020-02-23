@@ -1,5 +1,16 @@
 <div class="container-fluid">
-<?php include('header.php');?>
+<?php include('header.php');
+include('../login/login.php'); // Includes Login Script
+
+if(isset($_SESSION['login_user'])){
+    if($_SESSION['user_type']=='admin'){
+      header("location: ../login");     
+    } 
+}
+else {
+  header("location: ../login");
+}
+?>
     <form action="orders.php" method="POST">
         <!--Price(left_side)-->
         <div class="row mt-5">
