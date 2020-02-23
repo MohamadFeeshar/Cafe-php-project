@@ -1,5 +1,5 @@
 <?php
-require_once('../DatabaseFunctions.php');
+require_once('../databaseFunction/DatabaseFunctions.php');
 $db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
 
 if($_POST["cat-name"]!=""){  

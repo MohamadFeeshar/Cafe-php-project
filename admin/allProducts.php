@@ -1,6 +1,6 @@
 <?php
 include ("../databaseFunction/DatabaseFunctions.php");
-$dbObject= new Database('localhost', 'test', 'test', 'cafedb');
+$dbObject= new Database('localhost', 'root', '123456', 'cafedb');
 $myTest=$dbObject->getAllProducts();
 ?>
 
