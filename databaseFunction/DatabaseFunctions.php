@@ -11,7 +11,6 @@ class Database {
             $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
             // echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
-            // echo "hello";
             $this->$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
@@ -144,6 +143,21 @@ class Database {
         }
         return $val;
     }
+
+    public function login($name,$password){
+        $sql = "SELECT * FROM user where user_password=? AND user_name=?;"; // SQL with parameters
+        $stmt = $this->$connection->prepare($sql); 
+        try{       
+            $stmt->execute([$password,$name]);      
+           $result=$stmt->fetchAll();
+           return $result;
+        }
+        catch (Exception $e){
+             return 0;
+        }
+    }
+       
+
     public function getAllRooms()
     {
         $allRooms = array();
@@ -153,10 +167,11 @@ class Database {
         $allRooms = $stmt->fetchAll();
 
         return $allRooms;
+
     }
 
 }
 
-// $db = new Database('127.0.0.1', '', '123456', 'cafedb');
+
 
 ?>
