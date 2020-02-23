@@ -19,10 +19,10 @@ INSERT INTO user (user_name, email, user_password, room, ext, user_type) VALUES 
 
 INSERT INTO category (category_name) VALUES ("Hot Drinks");
 
-INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Espresso", "Espresso.png", "available", 5.5, 1);
-INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Double Espresso", "Double Espresso.png", "available", 5.5, 1);
-INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Cappuccino", "Cappuccino.png", "unavailable", 5.5, 1);
-INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Mocha", "Mocha.png", "available", 5.5, 1);
+INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Espresso", "../imag/Espresso.png", "available", 5.5, 1);
+INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Double Espresso", "../imag/Double Espresso.png", "available", 5.5, 1);
+INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Cappuccino", "../imag/Cappuccino.png", "unavailable", 5.5, 1);
+INSERT INTO product (product_name, product_img, available, price, category_id) VALUES ( "Mocha", "../imag/Mocha.png", "available", 5.5, 1);
 
 
 INSERT INTO orders (order_status, order_date, room, amount, notes, user_id) VALUES ("processing", "2020-02-21 10:12:00", "456", 11, "Espresso 1 tps of Sugar", 2);

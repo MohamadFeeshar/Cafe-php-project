@@ -7,8 +7,8 @@ class Database {
     public function __construct($dbhost='localhost', $dbuser='root', $dbpass='', $dbname='')
     {
         try {
-            $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";port=3306;";
-            //$dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
+            // $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";port=3306;";
+            $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
             // echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
             // echo "hello";
@@ -63,7 +63,7 @@ class Database {
     public function getAllProducts()
     {
         $allProducts = array();
-        $sql = "SELECT product_name, price, product_img FROM product;";
+        $sql = "SELECT product_name, price, product_img, product_id FROM product;";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allProducts = $stmt->fetchAll();
@@ -143,6 +143,16 @@ class Database {
           
         }
         return $val;
+    }
+    public function getAllRooms()
+    {
+        $allRooms = array();
+        $sql = "SELECT DISTINCT room FROM user;";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute();
+        $allRooms = $stmt->fetchAll();
+
+        return $allRooms;
     }
 
 }
