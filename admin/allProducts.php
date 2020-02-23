@@ -68,14 +68,5 @@ $myTest=$dbObject->getAllProducts();
     </section>
 </div>
 
-<?php
-$currentPage="product";
-echo '<style type="text/css">
-   #prodPage{
-    background-color:#6f8c76;
-    color:white
-   }
-   </style>';
-?> 
 </body>
 </html>

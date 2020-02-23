@@ -1,7 +1,3 @@
-<?php
-$currentPage="home";
-?>
-
 <head>
 <title>Cafe PHP Project</title>
 <link rel="stylesheet" href="../CSS/header.css">
@@ -11,10 +7,13 @@ $currentPage="home";
 <body>
 <header>
 <div class="topnav">
-  <a id="homePage" href="#">Home</a>
-  <a id="prodPage" href="#">Products</a>
-  <a id="userPage" href="#">Users</a>
-  <a id="manualPage" href="#">Manual Order</a>
-  <a id="checksPage" href="#">Checks </a>
+  <form action="../validateDirection.php" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="source" value="header">
+  <button id="homePage" name="home">Home</button>
+  <button id="prodPage" name="product">Products</button>
+  <button id="userPage" name="user">Users</button>
+  <button id="manualPage" name="MO">Manual Order</button>
+  <button id="checksPage" name="checks">Checks </button>
+   </form>
 </div>
 </header>

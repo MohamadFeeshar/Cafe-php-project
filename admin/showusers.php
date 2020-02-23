@@ -60,13 +60,9 @@ function renderUsers($users)
         <button class="addLink">add user ?</button>  
         <br>
     </section>
-
-
-
+    
     <section class="content" >
      <?php  getUsers(); ?> 
-
-
 
     </section>
     </div>
@@ -76,25 +72,4 @@ function renderUsers($users)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-$currentPage="userPage";
-echo '<style type="text/css">
-   #userPage{
-    background-color:#6f8c76;
-    color:white
-   }
-   </style>';
-?> 
 
