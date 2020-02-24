@@ -144,11 +144,11 @@ class Database {
         return $val;
     }
 
-    public function login($name,$password){
-        $sql = "SELECT * FROM user where user_password=? AND user_name=?;"; // SQL with parameters
+    public function login($email,$password){
+        $sql = "SELECT * FROM user where user_password=? AND email=?;"; // SQL with parameters
         $stmt = $this->$connection->prepare($sql); 
         try{       
-            $stmt->execute([$password,$name]);      
+            $stmt->execute([$password,$email]);      
            $result=$stmt->fetchAll();
            return $result;
         }
