@@ -15,6 +15,7 @@
   <button id="userPage" name="user">Users</button>
   <button id="manualPage" name="MO">Manual Order</button>
   <button id="checksPage" name="checks">Checks </button>
+  <button id="logout" name="logout"><a href="../logout.php">Logout </button>
    </form>
 
 </div>
