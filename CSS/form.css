@@ -1,3 +1,40 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+body{
+  height: 100vh;
+  font-family: "inherit;";
+  background-image:url("../imag/t1.jpg") ;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color:#D5BDAA ;
+  opacity: 0.8;
+}
+.main
+{
+    margin-left: 5%;
+    margin-top: 10%;
+
+}
+.pageTitle
+{
+  margin-left:22%;
+  margin-bottom:0;
+  margin-top:1%;
+  font-size: 3.5em;
+  color:#9A4D37;
+}
+.content
+{
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  width: 70%;
+  margin-left: 22%;
+
+}
 .fomrLable
 {
     color:#9A4D37;

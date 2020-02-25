@@ -13,7 +13,7 @@ require_once('../databaseFunction/DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){
-    $db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+    $db = new Database('127.0.0.1', 'test', 'test', 'cafedb');
     $GLOBALS[$orders]=$db->getAllOrders();       
     renderOrders($GLOBALS[$orders]);
 }

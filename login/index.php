@@ -16,10 +16,11 @@ if(isset($_SESSION['login_user'])){
 
 <!DOCTYPE Html>
 <html>
-
-<?php  include("../header.php");?>
-
-
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+<body>
 
 <div class="main">
     <section>
@@ -35,6 +36,7 @@ if(isset($_SESSION['login_user'])){
         <label class="fomrLable">Password :</label>
         <input class="formInput" name="password" placeholder="**********" type="password">
         <input class ="submit" name="submit" type="submit" value=" Login ">
+        <br>
         <span class="error"><?php echo $error; ?></span>
         </form>
 

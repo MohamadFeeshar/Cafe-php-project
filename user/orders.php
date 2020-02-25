@@ -3,7 +3,7 @@
 require_once('../databaseFunction/DatabaseFunctions.php');
 include("header.php");
 
-$db = new Database("localhost", "root", "", "cafedb");
+$db = new Database("localhost", "test", "test", "cafedb");
 $retreiveallorders = $db->getAllOrders();
 $getUserId = $db->getAllUsers();
 echo '<table>

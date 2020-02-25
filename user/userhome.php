@@ -1,5 +1,16 @@
-<?php require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database("localhost", "root", "", "cafedb");
+
+<?php
+session_start();
+if(session_destroy()) // Destroying All Sessions
+{
+header("Location: login"); // Redirecting To Home Page
+}
+?>
+
+
+<?php 
+require_once('../databaseFunction/DatabaseFunctions.php');
+$db = new Database("localhost", "test", "test", "cafedb");
 $retreiveProducts = $db->getAllProducts();
 $userRoom = $db->getAllUsers();
 ?>
