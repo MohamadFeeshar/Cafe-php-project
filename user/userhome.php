@@ -1,5 +1,5 @@
 <?php require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database("localhost", "test", "test", "cafedb");
+$db = new Database("localhost", "root", "", "cafedb");
 $retreiveProducts = $db->getAllProducts();
 $userRoom = $db->getAllUsers();
 ?>
