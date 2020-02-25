@@ -4,7 +4,7 @@ require_once('../databaseFunction/DatabaseFunctions.php');
 include('../login/login.php'); // Includes Login Script
 include("adminHeader.php");
 
-$db = new Database("localhost", "test", "test", "cafedb");
+$db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
 $retreiveallorders = $db->getAllOrders();
 // $getUserId = $db->getAllUsers();
 echo '<table>

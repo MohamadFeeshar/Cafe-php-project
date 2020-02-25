@@ -40,13 +40,13 @@
                 <div class="align_product">
                     <div class="align_img" id="allDrinks"> 
                     <?php
-                        require_once("orders.php");
+                        require_once("order.php");
                         print_r(getProducts());
                         
                     ?>
                         <img class="choose_drink" title="tea" name="tea" src="../imag/tea.png">
-                        <img class="choose_drink" title="nescafe" name="nescafe" src="../imag/tea.png">
-                        <img class="choose_drink" title="cola" name="cola" src="../imag/tea.png">
+                        <img class="choose_drink" title="nescafe" name="nescafe" src="">
+                        <img class="choose_drink" title="cola" name="cola" src="">
                     </div>
                 </div>
             </div>

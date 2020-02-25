@@ -1,5 +1,5 @@
 <?php
-include('../login/login.php'); // Includes Login Script
+include '../login/login.php'; // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
     if($_SESSION['user_type']=='user'){
@@ -15,8 +15,9 @@ $rooms;
 $products;
 
 function getUsers()
-{
-    $db = new Database("localhost",  $DBUserName,$DBPassword, "cafedb");
+ {      
+    require '../configrationfile.php'; 
+    $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
     $db->closeDBConnection();
@@ -33,7 +34,8 @@ function renderUsers($users)
 
 function getRooms()
 {
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    require '../configrationfile.php';
+    $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
     $GLOBALS[$rooms] = $db->getAllRooms();
     renderRooms($GLOBALS[$rooms]);
     $db->closeDBConnection();
@@ -48,7 +50,8 @@ function renderRooms($rooms)
 
 function getProducts()
 {
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    require '../configrationfile.php';
+    $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
     $GLOBALS[$products] = $db->getAllProducts();
     renderProducts($GLOBALS[$products]);
     $db->closeDBConnection();
@@ -75,7 +78,7 @@ function renderProducts($products)
 <!DOCTYPE Html>
 <html>
 
-<?php  include("../adminHeader.php");?>
+<?php  include "../adminHeader.php";?>
 
 <div class="mainContent" style="background-color:#D5BDAA;">
     <div class="addOrderForm">
