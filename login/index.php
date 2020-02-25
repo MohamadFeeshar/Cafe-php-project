@@ -29,8 +29,6 @@ if(isset($_SESSION['login_user'])){
         {
             margin-left: 6%;
             margin-top: 8%;
-          
-         
         }
         </style>
 </head>
