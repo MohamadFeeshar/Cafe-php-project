@@ -16,7 +16,7 @@ $products;
 
 function getUsers()
 {
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    $db = new Database("localhost", "root", "", "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
     $db->closeDBConnection();
@@ -33,7 +33,7 @@ function renderUsers($users)
 
 function getRooms()
 {
-    $db = new Database("127.0.0.1", "test", "", "cafedb");
+    $db = new Database("localhost", "root", "", "cafedb");
     $GLOBALS[$rooms] = $db->getAllRooms();
     renderRooms($GLOBALS[$rooms]);
     $db->closeDBConnection();
@@ -48,7 +48,7 @@ function renderRooms($rooms)
 
 function getProducts()
 {
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    $db = new Database("localhost", "root", "", "cafedb");
     $GLOBALS[$products] = $db->getAllProducts();
     renderProducts($GLOBALS[$products]);
     $db->closeDBConnection();

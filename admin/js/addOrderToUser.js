@@ -13,7 +13,7 @@ for(let i = 0; i < productHolder.length; i++)
         {
             let itemHolder = document.createElement("div");
             itemHolder.className = "itemHolder";
-            
+                
             // console.log(productHolder[i].children[1].children[0].textContent); //product Name
             // console.log(productHolder[i].children[1].children[2].textContent); //product Price
             // console.log(productHolder[i].children[1].children[4].textContent); //product ID

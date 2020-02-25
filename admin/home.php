@@ -12,7 +12,7 @@ else {
 
 
 require_once('../databaseFunction/DatabaseFunctions.php');
-$dbObject= new Database('localhost', 'test', 'test', 'cafedb');
+$dbObject= new Database('localhost', 'root', '', 'cafedb');
 $myTest=$dbObject->getAllOrders();
 ?>
 
