@@ -5,25 +5,25 @@ $db = new Database('127.0.0.1', 'test', 'test', 'cafedb');
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
-if (empty($_POST['username']) || empty($_POST['password'])) {
-$error = "Username or Password is invalid";
+if (empty($_POST['email']) || empty($_POST['password'])) {
+$error = "Email or Password is invalid";
 }
 else
 {
 
-// Define $username and $password
-$username=$_POST['username'];
+// Define $email and $password
+$email=$_POST['email'];
 $password=$_POST['password'];
 
 // To protect MySQL injection for Security purpose
-$username = stripslashes($username);
+$email = stripslashes($email);
 $password = stripslashes($password);
 
 // SQL query to fetch information of registerd users and finds user match.
-$res=$db->login($username,$password);
+$res=$db->login($email,$password);
 
 if(count($res)>0){
-    $_SESSION['login_user']=$username; // Initializing Session
+    $_SESSION['login_user']=$email; // Initializing Session
     $_SESSION['user_type']=$res[0]['user_type'];
     if($_SESSION['user_type']=="user"){
         header("location: ../user/userhome.php");
@@ -31,7 +31,7 @@ if(count($res)>0){
     else  header("location: ../admin/home.php");
 }    
 else {
-$error = "Username or Password is invalid";
+$error = "Email or Password is invalid";
 }
 $db->closeDBConnection(); // Closing Connection
 }
