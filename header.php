@@ -2,6 +2,7 @@
 <title>Cafe PHP Project</title>
 <link rel="stylesheet" href="../CSS/header.css">
 <link rel="stylesheet" href="../CSS/displayAll.css">
+<link rel="stylesheet" href="../CSS/form.css">
     
 </head>
 <body>
