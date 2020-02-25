@@ -26,7 +26,7 @@ switch ($keys[1]) {
         header( "location: user/userhome.php" );      
         break;
     case "myOrders":
-        //header( "location: user/orders.php" );      
+        header( "location: user/orders.php" );      
         break;
 
      default:
