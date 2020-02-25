@@ -47,13 +47,7 @@ function renderUsers($users)
         echo '</tr>';
     }
     
-   
     echo '</table>';    
-
-
-
-
-
 }
 
 

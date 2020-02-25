@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="../CSS/displayAll.css">
 <link rel="stylesheet" href="../CSS/form.css">
 <link rel="stylesheet" href="../CSS/styleAddOrderToUser.css">
-    
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
 </head>
 <body>
 <header>

@@ -22,7 +22,7 @@ addToUser($_POST["user_id"], $_POST["room"], $_POST["notes"], $_POST["total"], $
 function addToUser($user_id, $room, $notes, $total, $itemsArray)
 {
     require '../configrationfile.php';
-    $db = new Database("127.0.0.1", $DBPassword, $DBPassword, "cafedb");
+    $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
     date_default_timezone_set("Africa/Cairo");
     $db->addOrder(date("Y-m-d h:i:s", time()), $room, $total, $notes, "processing", $user_id, $itemsArray);
     echo json_encode(['code'=>200]);
