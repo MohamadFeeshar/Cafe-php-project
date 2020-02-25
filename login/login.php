@@ -1,7 +1,7 @@
 
 <?php
 require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+$db = new Database('127.0.0.1', 'test', 'test', 'cafedb');
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {

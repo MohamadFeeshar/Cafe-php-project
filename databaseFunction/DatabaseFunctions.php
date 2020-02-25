@@ -4,7 +4,7 @@ class Database {
 
     protected $connection;
     
-    public function __construct($dbhost='localhost', $dbuser='root', $dbpass='', $dbname='')
+    public function __construct($dbhost='localhost', $dbuser='test', $dbpass='test', $dbname='')
     {
         try {
             // $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";port=3306;";
