@@ -1,7 +1,8 @@
+<?php  include("../configrationfile.php");?>
 
 <?php
-require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database('localhost', 'root', '', 'cafedb');
+include('../databaseFunction/DatabaseFunctions.php');
+$db = new Database('localhost', $DBUserName, $DBPassword, 'cafedb');
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {

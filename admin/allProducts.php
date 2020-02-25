@@ -10,10 +10,9 @@ else {
   header("location: ../login");
 }
 
-
 require_once('../databaseFunction/DatabaseFunctions.php');
-$dbObject= new Database('localhost', 'test', 'test', 'cafedb');
-$myTest=$dbObject->getAllProducts();
+$db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+$myTest=$db->getAllProducts();
 ?>
 
 <!DOCTYPE Html>

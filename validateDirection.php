@@ -14,8 +14,9 @@ switch ($keys[1]) {
     case "user":
         header( "location: admin/showusers.php" );      
         break;
-    // case "MO":
-    //     break;
+    case "MO":
+        header( "location: admin/addOrderToUser.php" );      
+    break;
     // case "checks":
     //     break;
     case "logout":

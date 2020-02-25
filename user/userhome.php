@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php include('../userHeader.php');
 include('../login/login.php'); // Includes Login Script
 

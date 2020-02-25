@@ -1,5 +1,6 @@
+
 <?php
-include('../login/login.php'); // Includes Login Script
+include '../login/login.php'; // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
     if($_SESSION['user_type']=='user'){
@@ -12,8 +13,9 @@ else {
 
 
 require_once('../databaseFunction/DatabaseFunctions.php');
-$dbObject= new Database('localhost', 'root', '', 'cafedb');
-$myTest=$dbObject->getAllOrders();
+
+$db = new Database("localhost",  $DBUserName,$DBPassword, "cafedb");
+$myTest=$db->getAllOrders();
 ?>
 
 <!DOCTYPE Html>
