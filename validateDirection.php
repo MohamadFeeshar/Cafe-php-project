@@ -18,6 +18,9 @@ switch ($keys[1]) {
     //     break;
     // case "checks":
     //     break;
+    case "logout":
+        header( "location: logout.php" );      
+        break;
      default:
         header( "location: admin/home.php" );      
     }

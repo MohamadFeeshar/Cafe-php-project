@@ -12,13 +12,13 @@ if(isset($_SESSION['login_user'])){
  
 }
 ?>
-<!DOCTYPE html>
+
+
+<!DOCTYPE Html>
 <html>
-<head>
-<title>Login</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+
+<?php  include("../header.php");?>
+
 <div id="main">
 <h1> Login </h1>
 <div id="login">
