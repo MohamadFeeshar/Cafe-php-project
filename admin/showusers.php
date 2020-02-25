@@ -61,7 +61,7 @@ function renderUsers($users)
 <!DOCTYPE Html>
 <html>
 
-<?php  include("../header.php");?>
+<?php  include("../adminHeader.php");?>
 
 <div class="main">
     <section>

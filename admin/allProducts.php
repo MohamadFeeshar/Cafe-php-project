@@ -19,7 +19,7 @@ $myTest=$dbObject->getAllProducts();
 <!DOCTYPE Html>
 <html>
 
-<?php  include("../header.php");?>
+<?php  include("../adminHeader.php");?>
 
 <div class="main">
     <section>

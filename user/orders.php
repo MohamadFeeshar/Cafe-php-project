@@ -1,7 +1,7 @@
 <?php
 //include DB Class
 require_once('../databaseFunction/DatabaseFunctions.php');
-include("header.php");
+include("adminHeader.php");
 
 $db = new Database("localhost", "test", "test", "cafedb");
 $retreiveallorders = $db->getAllOrders();

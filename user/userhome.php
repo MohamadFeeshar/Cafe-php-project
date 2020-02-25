@@ -1,11 +1,10 @@
-<?php 
-require_once('../databaseFunction/DatabaseFunctions.php');
+<?php require_once('../databaseFunction/DatabaseFunctions.php');
 $db = new Database("localhost", "test", "test", "cafedb");
 $retreiveProducts = $db->getAllProducts();
 $userRoom = $db->getAllUsers();
 ?>
 <div class="container-fluid">
-<?php include('header.php');
+<?php include('../userHeader.php');
 include('../login/login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
