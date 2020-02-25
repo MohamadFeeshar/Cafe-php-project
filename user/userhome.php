@@ -1,21 +1,5 @@
-<?php require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database("localhost", "root", "", "cafedb");
-$retreiveProducts = $db->getAllProducts();
-$userRoom = $db->getAllUsers();
-?>
+<?php include('../userHeader.php');?>
 <div class="container-fluid">
-<?php include('../userHeader.php');
-include('../login/login.php'); // Includes Login Script
-
-if(isset($_SESSION['login_user'])){
-    if($_SESSION['user_type']=='admin'){
-      header("location: ../login");     
-    } 
-}
-else {
-  header("location: ../login");
-}
-?>
     <form action="orders.php" method="POST">
         <!--Price(left_side)-->
         <div class="row mt-5">
@@ -34,11 +18,11 @@ else {
                     <label for="rooms" class="col-sm-2 col-form-label">Rooms</label>
                     <div class="col-sm-9">
                         <select class="form-control ml-4" id="rooms">
-                    <?php
-                        foreach ($userRoom as $rooms) {
-                            ?>
-                            <option><?php echo $rooms['room'];?></option>
-                    <?php }?>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
                         </select>
                     </div>
                 </div>
@@ -56,13 +40,13 @@ else {
                 <div class="align_product">
                     <div class="align_img" id="allDrinks"> 
                     <?php
-                        foreach ($retreiveProducts as $item) {
-                        ?>
-                        <img class="choose_drink" title="<?php echo $item['product_name']?>" name="qty" src="<?php echo $item['product_img']?>" data-price="<?php echo $item['price']?>">
-                        <!-- <img class="choose_drink" title="tea" name="tea" src=""> -->
-                        <!-- <img class="choose_drink" title="nescafe" name="nescafe" src=""> -->
-                        <!-- <img class="choose_drink" title="cola" name="cola" src=""> -->
-                    <?php }?>
+                        require_once("orders.php");
+                        print_r(getProducts());
+                        
+                    ?>
+                        <img class="choose_drink" title="tea" name="tea" src="../imag/tea.png">
+                        <img class="choose_drink" title="nescafe" name="nescafe" src="../imag/tea.png">
+                        <img class="choose_drink" title="cola" name="cola" src="../imag/tea.png">
                     </div>
                 </div>
             </div>

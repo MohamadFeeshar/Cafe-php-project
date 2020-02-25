@@ -1,3 +1,5 @@
+<?php  include("../configrationfile.php");?>
+
 <?php
 include('../login/login.php'); // Includes Login Script
 
@@ -15,7 +17,7 @@ $users;
 function getUsers()
 {
 
-    $db = new Database("127.0.0.1", "test", "test", "cafedb");
+    $db = new Database("127.0.0.1", "test","test", "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
 }

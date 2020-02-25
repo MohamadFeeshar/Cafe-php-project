@@ -1,3 +1,4 @@
+
 <?php
 include('../login/login.php'); // Includes Login Script
 
@@ -12,8 +13,8 @@ else {
 
 
 require_once('../databaseFunction/DatabaseFunctions.php');
-$dbObject= new Database('localhost', 'test', 'test', 'cafedb');
-$myTest=$dbObject->getAllOrders();
+$db = new Database("localhost",  $DBUserName,$DBPassword, "cafedb");
+$myTest=$db->getAllOrders();
 ?>
 
 <!DOCTYPE Html>
