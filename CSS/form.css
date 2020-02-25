@@ -15,7 +15,9 @@ body{
 .main
 {
     margin-left: 5%;
-    margin-top: 10%;
+    margin-top: 2%;
+    width: 90%;
+    height: 80%;
 
 }
 .pageTitle
@@ -31,8 +33,9 @@ body{
   display: flex;
   flex-direction: row;
   height: 80%;
-  width: 70%;
+  width: 50%;
   margin-left: 22%;
+  max-width: 50%;
 
 }
 .fomrLable

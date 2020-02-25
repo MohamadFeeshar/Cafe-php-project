@@ -1,12 +1,9 @@
-.main{
-  height: 80%;
-}
 .content
 {
   display: flex;
   flex-direction: row;
   height: 80%;
-  width: 70%;
+  width: 80%;
   margin-left: 22%;
 
 }
@@ -16,6 +13,7 @@
   height: 100%;
   display: block; 
   font-size: 15px;
+  width: 100%;
 }
 #data td, #data th {
   border: 1px solid #ddd;
@@ -41,7 +39,7 @@
 #data tbody {
   height: 100%;      
   overflow-y: auto;   
-  overflow-x: hidden; 
+  overflow-x: auto; 
   border-radius: 25px;
  
 }
