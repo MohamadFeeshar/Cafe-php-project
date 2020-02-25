@@ -33,7 +33,7 @@ function renderUsers($users)
 
 function getRooms()
 {
-    $db = new Database("127.0.0.1", "test", "", "cafedb");
+    $db = new Database("127.0.0.1", "test", "test", "cafedb");
     $GLOBALS[$rooms] = $db->getAllRooms();
     renderRooms($GLOBALS[$rooms]);
     $db->closeDBConnection();
@@ -58,7 +58,8 @@ function renderProducts($products)
 {
     foreach ($products as $product) {
         echo "<div class=\"productHolder\" >";
-        echo "<img src=\"".$product['product_img']."\">";
+        // echo "<img src=\"".$product['product_img']."\">";
+        echo "<img src='../imag/tea.png'>";
         echo "<div class=\"priceHolder\">";
         echo "<h3>".$product['product_name']."<h3/>";
         echo "<h3>".$product['price']."<h3/>";
@@ -70,31 +71,13 @@ function renderProducts($products)
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Order</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styleAddOrderToUser.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-</head>
-<body>
-<nav>
-<ul>
-    <li><a>Home</a></li>
-    <li><a>Products</a></li>
-    <li><a>Users</a></li>
-    <li><a>Manual Order</a></li>
-    <li><a>Checks</a></li>
-</ul>
-<div id="admin">
-<a>Admin</a>
-</div>
-</nav>
 
-<div class="main">
+<!DOCTYPE Html>
+<html>
+
+<?php  include("../adminHeader.php");?>
+
+<div class="mainContent" style="background-color:#D5BDAA;">
     <div class="addOrderForm">
         <!-- <form action="insertOrder.php" method="post"> -->
             <h3>Items</h3>
