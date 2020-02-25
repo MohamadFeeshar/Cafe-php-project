@@ -170,6 +170,24 @@ class Database {
 
     }
 
+    public function getUser($id)
+    {
+        $sql =  "SELECT user_name, user_id FROM user where user_id=?";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute([$id]);
+        $result=$stmt->fetch();
+        return $result;
+    }
+
+    public function deleteUser($id)
+    {
+        $sql = "DELETE FROM user where user_id=?";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute([$id]);
+        $result=$stmt->rowCount();
+        return $result;
+    }
+
 }
 
 

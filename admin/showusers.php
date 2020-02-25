@@ -38,21 +38,15 @@ function renderUsers($users)
         echo '<td>'.$user['room'].'</td>';
         echo "<td> <img src= \"".$user['profile_pic']."\"/> </td>";
         echo '<td>'.$user['ext'].'</td>';
-        //echo "<td> <a class=\"edit\" href=\"editUser.php?id=".$user['user_id']."\">Edit</a> &emsp;";
-        //echo "<a class=\"delete\" href=\"deleteUser.php?id=".$user['user_id']."\">Delete</a> </td>";
-        echo "<td> <button class='button updatebtn'> Update </button>";
-        echo "<button class='button deletebtn'> Delete  </button> </td>"; 
+        echo "<td> <a href=\"edituser.php?id=".$user['user_id']."\"><button class='button updatebtn'> Update </button></a>";
+        echo "<a href=\"deleteuser.php?id=".$user['user_id']."\"><button class='button deletebtn'> Delete  </button></a> </td>"; 
     
         echo '</tr>';
     }
     
    
-    echo '</table>';    
-
-
-
-
-
+    echo '</table>';
+    
 }
 
 
@@ -66,7 +60,7 @@ function renderUsers($users)
 <div class="main">
     <section>
         <h1 class="pageTitle"> All Users </h1>
-        <button class="addLink">add user ?</button>  
+        <a href="adduser.php"><button class="addLink">add user ?</button> </a>
         <br>
     </section>
     
@@ -75,6 +69,14 @@ function renderUsers($users)
 
     </section>
     </div>
+    <!-- If something went wrong-->
+    <h2>
+    <?php
+        if(isset($_GET['error']) && $_GET['error'] == 1){
+            echo "Something went wrong";
+        }
+    ?>
+    </h2>
 
 </body>
 </html>
