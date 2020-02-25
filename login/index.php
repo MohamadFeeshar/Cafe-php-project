@@ -31,6 +31,13 @@ if(isset($_SESSION['login_user'])){
 <input name="submit" type="submit" value=" Login ">
 <span><?php echo $error; ?></span>
 </form>
+
+
+
+
+
+
+
 </div>
 </div>
 </body>

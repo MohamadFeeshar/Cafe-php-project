@@ -43,34 +43,7 @@ $myTest=$dbObject->getAllProducts();
                 </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
             
             }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
+            
             
             ?>
             </table>
