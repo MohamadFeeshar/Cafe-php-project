@@ -19,6 +19,20 @@ if(isset($_SESSION['login_user'])){
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/form.css">
+    <style>
+        body{
+            height:90vh;
+            overflow:hidden;
+        }
+
+        .main
+        {
+            margin-left: 6%;
+            margin-top: 8%;
+          
+         
+        }
+        </style>
 </head>
 <body>
 
