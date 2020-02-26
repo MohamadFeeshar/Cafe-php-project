@@ -37,8 +37,8 @@ $myTest=$db->getAllProducts();
                 </tr>
             <?php foreach($myTest as $row)
             {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
+                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td> <img src = \"" . 
+                $row['product_img'] ."\" style='width:50%;height:25%'></td><td> <button class='button availablebtn'> Available
                 </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
             
             }

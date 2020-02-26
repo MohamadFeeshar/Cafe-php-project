@@ -36,6 +36,7 @@ $myTest = $db->getAllOrders();
                 <th> Room </th>
                 <th> Notes</th>
                 <th> Amount</th>
+                <th> Action</th>
                 </tr>
             <?php
 foreach ($myTest as $row) {
