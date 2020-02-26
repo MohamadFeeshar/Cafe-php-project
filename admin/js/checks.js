@@ -65,41 +65,47 @@ window.addEventListener("load", function () {
                                 success: function (data) {
                                     if (data.code == "200")
                                     {
-                                        // for(let i = 0; i < data.orders.length; i++){
-                                        //     //For Testing
-                                        //     console.log(data.orders[i].order_date);
-                                        //     console.log(data.orders[i].total_amount);
+                                        for(let i = 0; i < data.orders.length; i++){
+                                            //For Testing
+                                            console.log(data.orders[i].order_date);
+                                            console.log(data.orders[i].total_amount);
                                             
-                                        // }
+                                        }
                                         
 
                                         /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
+                                        let elementExistsTemp2 = document.getElementById("newTable");
+                                        if(elementExistsTemp2!=null)
+                                        {
+                                            elementExistsTemp2.parentNode.removeChild(elementExistsTemp2);
+                                        }
 
-                                        // let table = document.createElement("table");
-                                        // // table.setAttribute("id", "data");
-                                        // let tableRowHeader = document.createElement("tr");
-                                        // let orderDateHeader = document.createElement("th");
-                                        // orderDateHeader.innerHTML = "Order Date";
-                                        // let totalHeader = document.createElement("th");
-                                        // totalHeader.innerHTML = "Amount";
-                                        // tableRowHeader.appendChild(nameHeader);
-                                        // tableRowHeader.appendChild(totalHeader);
-                                        // table.appendChild(tableRowHeader);
+                                        let table = document.createElement("table");
+                                        //table.setAttribute("id", "data");
+                                        table.setAttribute("id", "newTable");
+                                        let tableRowHeader = document.createElement("tr");
+                                        let orderDateHeader = document.createElement("th");
+                                        orderDateHeader.innerHTML = "Order Date";
+                                        let totalHeader = document.createElement("th");
+                                        totalHeader.innerHTML = "Amount";
+                                        tableRowHeader.appendChild(orderDateHeader);
+                                        tableRowHeader.appendChild(totalHeader);
+                                        table.appendChild(tableRowHeader);
 
-                                        // for(let i = 0; i < data.orders.length; i++){
-                                        //     let tableRow = document.createElement("tr");
+                                        for(let i = 0; i < data.orders.length; i++){
+                                            let tableRow = document.createElement("tr");
 
-                                        //     let orderDateData = document.createElement("td");
-                                        //     orderDateData.innerHTML = data.orders[i].order_date;
+                                            let orderDateData = document.createElement("td");
+                                            orderDateData.innerHTML = data.orders[i].order_date;
                         
-                                        //     let totalAmtData = document.createElement("td");
-                                        //     totalAmtData.innerHTML = data.orders[i].total_amount;
+                                            let totalAmtData = document.createElement("td");
+                                            totalAmtData.innerHTML = data.orders[i].total_amount;
                         
-                                        //     tableRow.appendChild(nameData);
-                                        //     tableRow.appendChild(totalAmtData);
-                                        //     table.appendChild(tableRow);
-                                        // }
-                                        // contentBody.appendChild(table);
+                                            tableRow.appendChild(orderDateData);
+                                            tableRow.appendChild(totalAmtData);
+                                            table.appendChild(tableRow);
+                                        }
+                                        contentBody.appendChild(table);
                                         
                                     }
                                         
@@ -147,8 +153,13 @@ dropdownMenu.addEventListener("change", function () {
                     contentBody.removeChild(child);
                     child = contentBody.lastChild;
                 }
+                let elementExistsTemp1 = document.getElementById("allUsers");
+                if(elementExistsTemp1!=null)
+                {
+                    elementExistsTemp1.parentNode.removeChild(elementExistsTemp1);
+                }
                 let table = document.createElement("table");
-                table.setAttribute("id", "data");
+                table.setAttribute("id", "allUsers");
                 let tableRowHeader = document.createElement("tr");
                 let nameHeader = document.createElement("th");
                 nameHeader.innerHTML = "Name";

@@ -8,14 +8,14 @@
 
 }
 
-#data {
+#data,#allUsers,#specificUser {
   border-collapse: separate;
   height: 100%;
   display: block; 
   font-size: 15px;
   width: 100%;
 }
-#data td, #data th {
+#data td, #data th,#allUsers td, #allUsers th,#specificUser td,#specificUser th {
   border: 1px solid #ddd;
   padding: 0px;
   text-align: center;
@@ -24,11 +24,23 @@
 #data tr:nth-child(even){background-color: #D5BDAA;}
 #data tr:nth-child(odd){background-color: #D5BDAA;}
 #data tr:hover {background-color: #A18B79;}
-#data thead, #data tbody {
+
+#allUsers tr:nth-child(even){background-color: #D5BDAA;}
+#allUsers tr:nth-child(odd){background-color: #D5BDAA;}
+#allUsers tr:hover {background-color: #A18B79;}
+
+#specificUser tr:nth-child(even){background-color: #D5BDAA;}
+#specificUser tr:nth-child(odd){background-color: #D5BDAA;}
+#specificUser tr:hover {background-color: #A18B79;}
+
+
+#data thead, #data tbody,#allUsers thead, #allUsers tbody,#specificUser thead, #specificUser tbody 
+{
   display: block; 
   font-size: 15px;
 }
-#data th {
+#data th,#allUsers th,#specificUser th 
+{
   padding-top: 12px;
   padding-bottom: 12px;
   background-color: #43223A;
@@ -36,12 +48,11 @@
   font-size: 20px;
   
 }
-#data tbody {
+#data tbody,#allUsers tbody,#specificUser tbody {
   height: 100%;      
   overflow-y: auto;   
   overflow-x: auto; 
   border-radius: 25px;
- 
 }
 
 .button {

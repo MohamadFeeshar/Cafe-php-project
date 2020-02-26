@@ -1,6 +1,6 @@
 <?php 
 global $DBUserName;
 global $DBPassword;
-$DBUserName="root";
-$DBPassword="";
+$DBUserName="test";
+$DBPassword="test";
 ?>
