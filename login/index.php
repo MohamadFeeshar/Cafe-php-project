@@ -52,7 +52,7 @@ if(isset($_SESSION['login_user'])){
         <span class="error"><?php echo $error; ?></span>
 
     </form>
-    <a href="resetpassword.php"><button class="forgetLink">Forget Password ?</button> </a>
+    <a href="login/resetpassword.php"><button class="forgetLink">Forget Password ?</button> </a>
     </section>
 </div>
 

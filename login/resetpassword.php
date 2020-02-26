@@ -32,18 +32,15 @@
     <section class="content" >
   
     <form action="resetpasswordForm.php" method="post">
-    <label for="email" class="fomrLable">Email :</label>   
-
+    <label for="email" class="fomrLable">Email:</label>
     <input type="email" name="email" id="email" class="formInput" ><br>
-    <label for="password" class="fomrLable">Password :</label>
+    <label for="password" class="fomrLable">Password</label>
     <input type="password" name="password" id="password"class="formInput" ><br>
-    <label for="confirmPass" class="fomrLable">Confirm passowrd :</label>
+    <label for="confirmPass" class="fomrLable">Confirm passowrd:</label>
     <input type="password" name="confirmpassword" id="confirmpassword" class="formInput" ><br>
     <input type="submit" value="Submit" class ="save">
     <input type="reset" value="Reset" class="reset">
   </form>
-
-  <a href="/login/index.php"><button class="forgetLink">Login?</button> </a>
 
     </section>
     </div>
