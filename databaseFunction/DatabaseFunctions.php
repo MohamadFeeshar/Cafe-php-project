@@ -172,7 +172,7 @@ class Database {
 
     public function getUser($id)
     {
-        $sql =  "SELECT user_name, user_id FROM user where user_id=?";
+        $sql =  "SELECT user_name, user_id, user_password, email, profile_pic, room, ext FROM user where user_id=?";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute([$id]);
         $result=$stmt->fetch();
@@ -188,8 +188,69 @@ class Database {
         return $result;
     }
 
+    public function resetPassword($email, $password){
+        $sql = "UPDATE user SET user_password=:password WHERE email=:email";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    public function updateUser($id, $username, $email, $room, $ext){
+        $sql = "UPDATE user SET user_name=:username, email=:email, room=:room, ext=:ext WHERE user_id=:id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":room", $room);
+        $stmt->bindParam(":ext", $ext);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    public function updateUserwithPasswordWithPic($id, $username, $email, $password, $room, $ext, $profilePic){
+        $sql = "UPDATE user SET user_name=:username, email=:email, user_password=:password, room=:room, ext=:ext, profile_pic=:profilePic WHERE user_id=:id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":room", $room);
+        $stmt->bindParam(":ext", $ext);
+        $stmt->bindParam(":profilePifc", $profilePic);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    public function updateUserWithPic($id, $username, $email, $room, $ext, $profilePic){
+        $sql = "UPDATE user SET user_name=:username, email=:email, user_password=:password, room=:room, ext=:ext, profile_pic=:profilePic WHERE user_id=:id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":room", $room);
+        $stmt->bindParam(":ext", $ext);
+        $stmt->bindParam(":profilePifc", $profilePic);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    public function updateUserWithPassword($id, $username, $email, $password, $room, $ext){
+        $sql = "UPDATE user SET user_name=:username, email=:email, user_password=:password, room=:room, ext=:ext WHERE user_id=:id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":room", $room);
+        $stmt->bindParam(":ext", $ext);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    
+
 }
-
-
 
 ?>
