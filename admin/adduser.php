@@ -41,9 +41,9 @@ if (isset($_SESSION['login_user'])) {
     <input type="file" id="profilePic" name="profilePic" class="formInput" style="padding: 4px 4px;margin: 2px 0;" ><br>
     <input type="submit" value="Save" class ="save">
     <input type="reset" value="Reset" class="reset">
-  </form>
+     </form>
 
-    </section>
+    </section> 
     </div>
     <!-- If something went wrong-->
   

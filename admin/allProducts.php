@@ -23,7 +23,7 @@ $myTest=$db->getAllProducts();
 <div class="main">
     <section>
         <h1 class="pageTitle"> All Products </h1>
-        <button class="addLink">add product ?</button>  
+        <a href="addproduct.php"><button class="addLink">add product ?</button> </a>
         <br>
     </section>
 
