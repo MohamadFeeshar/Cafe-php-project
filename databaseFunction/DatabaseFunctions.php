@@ -62,7 +62,7 @@ class Database {
     public function getAllProducts()
     {
         $allProducts = array();
-        $sql = "SELECT product_name, price, product_img, product_id FROM product;";
+        $sql = "SELECT product_name, price, product_img, product_id,available FROM product;";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allProducts = $stmt->fetchAll();

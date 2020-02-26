@@ -96,6 +96,15 @@
   color: whitesmoke;
 }
 
+.unavailablebtn {
+  background-color: whitesmoke; 
+  color: black; 
+  border: 2px solid rgba(140, 140, 186,0.7);
+}
+.unavailablebtn:hover {
+  background-color:rgba(50, 50, 50,0.7);
+  color: whitesmoke;
+}
 
 .pageTitle
 {
