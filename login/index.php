@@ -12,26 +12,48 @@ if(isset($_SESSION['login_user'])){
  
 }
 ?>
-<!DOCTYPE html>
+
+
+<!DOCTYPE Html>
 <html>
 <head>
-<title>Login</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+    <style>
+        body{
+            height:90vh;
+            overflow:hidden;
+        }
+
+        .main
+        {
+            margin-left: 6%;
+            margin-top: 8%;
+        }
+        </style>
 </head>
 <body>
-<div id="main">
-<h1> Login </h1>
-<div id="login">
 
-<form action="" method="post">
-<label>Email :</label>
-<input id="email" name="email" placeholder="email" type="email">
-<label>Password :</label>
-<input id="password" name="password" placeholder="**********" type="password">
-<input name="submit" type="submit" value=" Login ">
-<span><?php echo $error; ?></span>
-</form>
+<div class="main">
+    <section>
+        <h1 class="pageTitle"> Login </h1>
+        <br>
+    </section>
+    
+    <section class="content" >
+        <form action="" method="post">
+        <label class="fomrLable">Email :</label>
+        <input class="formInput" name="email" placeholder="email" type="email">
+        <br/><br/>
+        <label class="fomrLable">Password :</label>
+        <input class="formInput" name="password" placeholder="**********" type="password">
+        <input class ="submit" name="submit" type="submit" value=" Login ">
+        <br>
+        <span class="error"><?php echo $error; ?></span>
+        </form>
+
+    </section>
 </div>
-</div>
+
 </body>
 </html>

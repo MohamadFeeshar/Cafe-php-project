@@ -10,16 +10,15 @@ else {
   header("location: ../login");
 }
 
-
 require_once('../databaseFunction/DatabaseFunctions.php');
-$dbObject= new Database('localhost', 'root', '123456', 'cafedb');
-$myTest=$dbObject->getAllProducts();
+$db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+$myTest=$db->getAllProducts();
 ?>
 
 <!DOCTYPE Html>
 <html>
 
-<?php  include("../header.php");?>
+<?php  include("../adminHeader.php");?>
 
 <div class="main">
     <section>
@@ -43,34 +42,7 @@ $myTest=$dbObject->getAllProducts();
                 </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
             
             }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
-
-            foreach($myTest as $row)
-            {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td>" . 
-                $row['product_img'] ."</td><td> <button class='button availablebtn'> Available
-                </button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
-            }
+            
             
             ?>
             </table>

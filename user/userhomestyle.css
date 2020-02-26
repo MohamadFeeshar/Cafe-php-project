@@ -1,4 +1,137 @@
-body {
+
+.orderedItems {
+    height: 15rem;
+    width: auto;
+    overflow-y: scroll;
+}
+
+.addOrderForm {
+    flex-direction: column;
+    justify-content: center;
+    border: solid;
+    border-color: black;
+    width: 27%;
+    height: 350%;
+    margin: 40px;
+    padding: 20px;
+    margin-top: 68px;
+}
+
+textarea {
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.separator {
+    height: 0.5px;
+    width: 100%;
+    border-color: black;
+    background-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.confirmOrder {
+    float: right;
+    margin-top: 3rem;
+}
+
+.total {
+    height: 3rem;
+}
+
+.main {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.orderOptions {
+    width: 60%;
+    flex-direction: column;
+}
+
+.usersCBox {
+    height: 20%;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: solid;
+    height: 80%;
+    width: 100%;
+}
+
+.productHolder {
+    margin: 5px;
+    padding: 2px;
+    width: 13rem;
+    height: 13rem;
+    border: solid;
+}
+
+img {
+    border: solid;
+    width: 94%;
+    height: 65%;
+}
+
+.priceHolder {
+    border: solid;
+    width: 94%;
+    height: 20%;
+}
+
+.itemHolder {
+    display: flex;
+    flex-direction: row;
+    border: solid;
+    width: 100%;
+    height: 20% auto;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+.itemHolder .itemName {
+    font-size: large;
+    margin: 5px;
+    width: 60%;
+}
+
+.itemHolder .itemQuantity {
+    font-size: large;
+    margin: 5px;
+}
+
+.itemHolder button {
+    font-size: medium;
+    margin: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
     background-color: aliceblue;
 }
 
@@ -46,4 +179,4 @@ img{
 
 .add_products{
     display: block;
-}
+} */

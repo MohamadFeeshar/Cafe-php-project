@@ -10,7 +10,7 @@ else {
    header("location: ../login/");
 }
 require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+$db = new Database("localhost",  $DBUserName,$DBPassword, "cafedb");
 
 if($_POST["cat-name"]!=""){  
   $res=$db->addCategory($_POST["cat-name"]);

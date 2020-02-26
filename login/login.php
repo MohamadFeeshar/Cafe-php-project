@@ -1,7 +1,8 @@
+<?php  include("../configrationfile.php");?>
 
 <?php
-require_once('../databaseFunction/DatabaseFunctions.php');
-$db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+include('../databaseFunction/DatabaseFunctions.php');
+$db = new Database('localhost', $DBUserName, $DBPassword, 'cafedb');
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
 if (isset($_POST['submit'])) {
@@ -25,6 +26,7 @@ $res=$db->login($email,$password);
 if(count($res)>0){
     $_SESSION['login_user']=$email; // Initializing Session
     $_SESSION['user_type']=$res[0]['user_type'];
+    $_SESSION['user_id']=$res[0]['user_id'];
     if($_SESSION['user_type']=="user"){
         header("location: ../user/userhome.php");
     }

@@ -13,7 +13,7 @@ require_once('../databaseFunction/DatabaseFunctions.php');
 $orders;
 $title = 'Orders';
 function getOrders(){
-    $db = new Database('127.0.0.1', 'root', '123456', 'cafedb');
+    $db = new Database("127.0.0.1",  $DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$orders]=$db->getAllOrders();       
     renderOrders($GLOBALS[$orders]);
 }
@@ -67,7 +67,6 @@ echo $html = <<< TMP
 <!DOCTYPE html>
 <html>
 <head> 
-<link rel="stylesheet" href="style.css"/>   
 <title> $title </title>
 </head>
 <body>

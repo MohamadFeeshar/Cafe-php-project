@@ -1,40 +1,57 @@
-<?php
-include('../login/login.php'); // Includes Login Script
 
-if(isset($_SESSION['login_user'])){
-    if($_SESSION['user_type']=='user'){
-      header("location: ../login");     
-    } 
+<?php
+include '../login/login.php'; // Includes Login Script
+
+if (isset($_SESSION['login_user'])) {
+    if ($_SESSION['user_type'] == 'user') {
+        header("location: ../login");
+    }
+} else {
+    header("location: ../login");
 }
-else {
-  header("location: ../login");
-}
+
+require_once '../databaseFunction/DatabaseFunctions.php';
+
+$db = new Database("localhost", $DBUserName, $DBPassword, "cafedb");
+$myTest = $db->getAllOrders();
 ?>
+
 <!DOCTYPE Html>
 <html>
-<head>
-   <title> </title>
-   <link rel="stylesheet" href="../CSS/home.css">
-</head> 
-<body style="height:100%">
 
-<section class="homeBody">
-   <form action="../validateDirection.php" method="POST"  enctype="multipart/form-data">
-      <h1 > SELECT ^_^ </h1>
-      <input type="hidden" name="source" value="home">
-      <br>
-      <button class="myButton" name="home"> HOME </button>
-      <br>
-      <button class="myButton" name="product"> PRODUCTS </button>
-      <br>
-      <button class="myButton" name="user"> USERS </button>
-      <br>
-      <button class="myButton" name="MO"> MANUAL - ORDERS </button>
-      <br>
-      <button class="myButton" name="checks"> CHECKS </button>
-      <br>
-</form>
-</section>
+<?php include "../adminHeader.php";?>
+
+<div class="main">
+    <section>
+        <h1 class="pageTitle"> Orders </h1>
+        <!-- <button class="addLink">add product ?</button>   -->
+        <br>
+    </section>
+
+    <section class="content">
+            <table id="data">
+                <tr>
+                <th> User Name </th>
+                <th> Order Date </th>
+                <th> Room </th>
+                <th> Notes</th>
+                <th> Amount</th>
+                </tr>
+            <?php
+foreach ($myTest as $row) {
+    echo "<tr><td>" . $row['user_name'] . "</td><td>" . $row['order_date'] . "</td><td>" .
+        $row['room'] . "</td><td>" .
+        $row['notes'] . "</td><td>" .
+        $row['amount'] . "</td><td> <button class='button deletebtn'> Cancel?  </button> </td></tr>";
+}
+
+?>
+            </table>
+
+
+
+    </section>
+</div>
 
 </body>
 </html>

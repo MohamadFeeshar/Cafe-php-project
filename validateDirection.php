@@ -5,7 +5,7 @@ $keys = array_keys($_POST);
 
 
 switch ($keys[1]) {
-    case "home": 
+    case "adminHome": 
         header( "location: admin/home.php" );      
         break;
     case "product":
@@ -14,10 +14,22 @@ switch ($keys[1]) {
     case "user":
         header( "location: admin/showusers.php" );      
         break;
-    // case "MO":
-    //     break;
+    case "MO":
+        header( "location: admin/addOrderToUser.php" );      
+    break;
     // case "checks":
     //     break;
+    case "logout":
+        header( "location: logout.php" );      
+        break;
+
+    case "userHome":
+        header( "location: user/userhome.php" );      
+        break;
+    case "myOrders":
+        header( "location: user/orders.php" );      
+        break;
+
      default:
         header( "location: admin/home.php" );      
     }

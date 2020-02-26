@@ -1,5 +1,5 @@
 <?php
-include('../login/login.php'); // Includes Login Script
+include '../login/login.php' ; // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
     if($_SESSION['user_type']=='user'){
@@ -15,7 +15,8 @@ $users;
 function getUsers()
 {
 
-    $db = new Database("127.0.0.1", "root", "123456", "cafedb");
+    require '../configrationfile.php';
+    $db = new Database("127.0.0.1", $DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
 }
@@ -44,9 +45,7 @@ function renderUsers($users)
         echo '</tr>';
     }
     
-   
-    echo '</table>';
-    
+    echo '</table>';    
 }
 
 
@@ -55,7 +54,7 @@ function renderUsers($users)
 <!DOCTYPE Html>
 <html>
 
-<?php  include("../header.php");?>
+<?php  include "../adminHeader.php";?>
 
 <div class="main">
     <section>

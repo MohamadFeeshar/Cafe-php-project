@@ -14,7 +14,7 @@ class Database {
             $this->$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e) {
-            echo "hello";
+            //echo "hello";
             echo $sql . "<br>" . $e->getMessage();
         }
     }
@@ -67,19 +67,13 @@ class Database {
         $stmt->execute();
         $allProducts = $stmt->fetchAll();
 
-        //// How to loop over the array and extract values
-        // foreach ($allProducts as $item) { 
-
-        //     echo $item['product_name']." ".$item['price']." ".$item['product_img']."<br>";
-        // }
-
         return $allProducts;
     }
 
     public function getAllOrders()
     {
         $allOrders = array();
-        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
+        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -170,6 +164,7 @@ class Database {
 
     }
 
+
     public function getUser($id)
     {
         $sql =  "SELECT user_name, user_id, user_password, email, profile_pic, room, ext FROM user where user_id=?";
@@ -178,6 +173,56 @@ class Database {
         $result=$stmt->fetch();
         return $result;
     }
+
+    public function getUsernameWthTotal($user_id)
+    {
+        $usersWthTotal = array();
+        $sql;
+        $stmt;
+        if($user_id !== "-1")
+        {
+            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND u.user_id = :user_id GROUP BY u.user_name;";
+            $stmt = $this->$connection->prepare($sql);
+            $stmt->bindParam(":user_id", $user_id);
+        }
+        else
+        {
+            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id GROUP BY u.user_name;";
+            $stmt = $this->$connection->prepare($sql);
+        }
+        $stmt->execute();
+        $usersWthTotal = $stmt->fetchAll();
+
+        return $usersWthTotal;        
+    }
+
+    public function getOrdersOfUser($date_from, $date_to, $user_id)
+    {
+        $orders = array();
+        $sql = "SELECT order_id, order_date, SUM(amount) AS total_amount FROM orders WHERE user_id = :user_id AND order_date BETWEEN :datefrom AND :dateto GROUP BY order_id;";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":user_id", $user_id);
+        $stmt->bindParam(":datefrom", $date_from);
+        $stmt->bindParam(":dateto", $date_to);
+        $stmt->execute();
+        $orders = $stmt->fetchAll();
+
+        return $orders; 
+    }
+
+    public function getProductsOfOrder($order_id)
+    {
+        $products = array();
+        $sql = "SELECT p.product_img, p.price, op.quantity FROM product p, order_product op WHERE p.product_id = op.product_id AND op.order_id = :order_id;";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":order_id", $order_id);
+        $stmt->execute();
+        $products = $stmt->fetchAll();
+
+        return $products; 
+    }
+
+
 
     public function deleteUser($id)
     {
