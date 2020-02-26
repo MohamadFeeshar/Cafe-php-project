@@ -96,22 +96,6 @@
 }
 
 
-.addLink
-{
-  float:right;
-  margin-right:36%;
-  background:none;
-  color:#9A4D37;
-  width: 100px;
-  border: none;
-}
-.addLink:hover
-{
-  color:#95a979;
-  font-size: 90%;
-  cursor: pointer;
-}
-
 .pageTitle
 {
   margin-left:22%;

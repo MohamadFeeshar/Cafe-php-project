@@ -37,7 +37,7 @@ if(isset($_SESSION['login_user'])){
 <div class="main">
     <section>
         <h1 class="pageTitle"> Login </h1>
-        <br>
+        <br/>
     </section>
     
     <section class="content" >
@@ -50,8 +50,9 @@ if(isset($_SESSION['login_user'])){
         <input class ="submit" name="submit" type="submit" value=" Login ">
         <br>
         <span class="error"><?php echo $error; ?></span>
-        </form>
 
+    </form>
+    <a href="login/resetpassword.php"><button class="forgetLink">Forget Password ?</button> </a>
     </section>
 </div>
 

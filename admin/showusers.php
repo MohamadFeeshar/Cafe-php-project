@@ -41,7 +41,6 @@ function renderUsers($users)
         echo '<td>'.$user['ext'].'</td>';
         echo "<td> <a href=\"edituser.php?id=".$user['user_id']."\"><button class='button updatebtn'> Update </button></a>";
         echo "<a href=\"deleteuser.php?id=".$user['user_id']."\"><button class='button deletebtn'> Delete  </button></a> </td>"; 
-    
         echo '</tr>';
     }
     

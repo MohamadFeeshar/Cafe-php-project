@@ -1,7 +1,7 @@
 <?php
-require_once '../databaseFunction/DatabaseFunctions.php';
 if (isset($_POST['submit'])) {
-    $db = new Database("127.0.0.1", "phpmyadmin", "phpmyadmin", "cafedb");
+    include('../databaseFunction/DatabaseFunctions.php');
+    $db = new Database('localhost', $DBUserName, $DBPassword, 'cafedb');    
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm = $_POST['confirmpassword'];

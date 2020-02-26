@@ -1,17 +1,24 @@
 <?php
-require '../databaseFunction/DatabaseFunctions.php';
 include('../login/login.php'); // Includes Login Script
+
 if(isset($_SESSION['login_user'])){
     if($_SESSION['user_type']=='user'){
-      echo $_SESSION['user_type'];
-      header("location: ../login/");     
+      header("location: ../login");     
     } 
 }
 else {
-   header("location: ../login/");
+  header("location: ../login");
 }
-  $user = $db->getUser($_GET['id']);
+
+require_once('../databaseFunction/DatabaseFunctions.php');
+$db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+$user = $db->getUser($_GET['id']);
+
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +28,10 @@ else {
   <title>Delete User</title>
 </head>
 <body>
-<form action="deleteuserForm.php" method="post">
+<form action="deleteuserForm.php" method="POST">
   <p>Do you want to delete <?php echo $user["user_name"]; ?> ? </p>
   <input type="hidden" name="userId" value=<?php echo $user['user_id']?>>
-  <input type="submit" value="confirm">
+  <input type="submit" value="confirm" name="submit">
 </form>
 <a href="./showusers.php"><button>Cancel</button></a>
 </body>
