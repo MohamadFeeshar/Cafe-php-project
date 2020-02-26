@@ -55,32 +55,33 @@ function validateFile(){
 $categories=$db->getAllCategories();   
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-   <meta charset="UTF-8">
-	<title>Add product</title>
-	<link rel="stylesheet" type="text/css" href="form.css">
+<html lang="en">
 
-</head>
-<body>
-    <div class="form_container">
-    <h1><a>Add Product</a></h1>
+  <?php  include "../adminHeader.php";?>
+
+  <div class="main">
+    <section>
+        <h1 class="pageTitle"> Add New Product </h1>
+        <br>
+    </section>
+
+    <section class="content" >
     <form id="form" class="appnitro"  method="post" enctype="multipart/form-data" action="addproduct.php">	
       <div class="inp_container">
-        <label class="name" for="name"> Name </label>
-        <input id="name" name="name" class="element text large" type="text" maxlength="255" required /> 
+        <label for="name" class="fomrLable"> Name: </label>
+        <input class="fomrLable" id="name" name="name" class="element text large" type="text" maxlength="255" required /> 
       </div>
         <br/>        
         <div class="inp_container">
-        <label class="price" for="price"> Price: </label>
-        <input id="price" name="price" type="number" min="0.00" max="10000.00" step="0.01" required/>  
+        <label for="price" class="fomrLable"> Price: </label>
+        <input class="fomrLable" id="price" name="price" type="number" min="0.00" max="10000.00" step="0.01" required/>  
        </div>
         <br/>
         
       
         <div class="inp_container">
       
-        <label for="category">Choose a Category:</label>
+        <label for="category" class="fomrLable">Choose a Category:</label>
         <select name="category" id="category"> 
         <?php        
        
@@ -99,18 +100,25 @@ $categories=$db->getAllCategories();
         <br/>
       
         <div class="inp_container">        
-        <label for="prod-picture">Product Picture:</label>
-        <input type="file" id="prod-picture" name="myfile"> 
+        <label for="prod-picture" class="fomrLable">Product Picture:</label>
+        <input type="file" id="prod-picture" name="myfile" > 
         </div>
         <br/>
-        <div class="buttons">
-        <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-        <input id="resetForm" class="button_text" type="reset" name="reset" value="Reset" />
-    </div>
+        <div class="buttons"> 
+           <input type="submit" value="Save" class ="save">
+           <input type="reset" value="Reset" class="reset">
+      </div>
    
    
     </form>
-</div>
+
+
+    </section>
+
+
+
+  
+  </div>
 
 </body>
 

@@ -62,7 +62,7 @@ class Database {
     public function getAllProducts()
     {
         $allProducts = array();
-        $sql = "SELECT product_name, price, product_img, product_id FROM product;";
+        $sql = "SELECT product_name, price, product_img, product_id,available FROM product;";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allProducts = $stmt->fetchAll();
@@ -250,6 +250,15 @@ class Database {
         $stmt->bindParam(":room", $room);
         $stmt->bindParam(":ext", $ext);
         $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
+    public function updateProductStatus($id, $status){
+        $sql = "UPDATE product SET available=:available WHERE product_id=:product_id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":available", $status);
+        $stmt->bindParam(":product_id", $id);
         $stmt->execute();
         $result=$stmt->rowCount();
         return $result;

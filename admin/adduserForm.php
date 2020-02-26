@@ -1,5 +1,4 @@
 <?php
-require_once '../databaseFunction/DatabaseFunctions.php';
 include '../login/login.php'; // Includes Login Script
 if (isset($_SESSION['login_user'])) {
     if ($_SESSION['user_type'] == 'user') {
