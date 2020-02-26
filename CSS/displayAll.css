@@ -12,7 +12,6 @@
   border-collapse: separate;
   height: 100%;
   display: block; 
-  font-size: 15px;
   width: 100%;
 }
 #data td, #data th,#allUsers td, #allUsers th,#specificUser td,#specificUser th {
@@ -20,6 +19,8 @@
   padding: 0px;
   text-align: center;
   padding: 8px;
+  font-size: 140%;
+
 }
 #data tr:nth-child(even){background-color: #D5BDAA;}
 #data tr:nth-child(odd){background-color: #D5BDAA;}

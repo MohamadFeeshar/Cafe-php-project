@@ -92,18 +92,19 @@ textarea {
 }
 
 img {
-    border: solid;
+    
     border-radius: 5px;
     width: 94%;
     height: 65%;
 }
 
 .priceHolder {
-    border: solid;
+   
     border-radius: 5px;
     width: 94%;
     height: 20%;
     border-radius: 5px;
+    margin-left: 5%;;
 }
 
 .itemHolder {
