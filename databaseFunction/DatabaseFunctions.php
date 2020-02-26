@@ -181,13 +181,13 @@ class Database {
         $stmt;
         if($user_id !== "-1")
         {
-            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND u.user_id = :user_id GROUP BY u.user_name;";
+            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND u.user_id = :user_id GROUP BY u.user_id, u.user_name;";
             $stmt = $this->$connection->prepare($sql);
             $stmt->bindParam(":user_id", $user_id);
         }
         else
         {
-            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id GROUP BY u.user_name;";
+            $sql = "SELECT u.user_name, SUM(o.amount) AS total_amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id GROUP BY u.user_id, u.user_name;";
             $stmt = $this->$connection->prepare($sql);
         }
         $stmt->execute();
@@ -199,7 +199,7 @@ class Database {
     public function getOrdersOfUser($date_from, $date_to, $user_id)
     {
         $orders = array();
-        $sql = "SELECT order_id, order_date, SUM(amount) AS total_amount FROM orders WHERE user_id = :user_id AND order_date BETWEEN :datefrom AND :dateto GROUP BY order_id;";
+        $sql = "SELECT order_id, order_date, SUM(amount) AS total_amount, user_id FROM orders WHERE user_id = :user_id AND order_date BETWEEN :datefrom AND :dateto GROUP BY user_id, order_date, order_id;";
         $stmt = $this->$connection->prepare($sql);
         $stmt->bindParam(":user_id", $user_id);
         $stmt->bindParam(":datefrom", $date_from);

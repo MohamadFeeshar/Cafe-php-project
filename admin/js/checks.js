@@ -51,12 +51,14 @@ window.addEventListener("load", function () {
                     table.appendChild(tableRow);
 
                     tableRow.addEventListener("click", function (e) {
-                        let selectedUserID = e.path[2].rows[1].children[2].textContent; //selected user id
-
+                        let selectedUserID = e.path[1].cells[2].textContent; //selected user id
+                        console.log(e.path);
+                        
                         if(dateFrom.value !== "" && dateTo.value !== "")
                         {
                             let obj = {user_id: selectedUserID, dateFrom: dateFrom.value, dateTo:dateTo.value, expandUserOrder: 1};
-                                                       
+                            console.log(obj);
+                                         
                             $.ajax({
                                 url: "checksHelper.php",
                                 type: "post",
@@ -65,23 +67,14 @@ window.addEventListener("load", function () {
                                 success: function (data) {
                                     if (data.code == "200")
                                     {
-                                        for(let i = 0; i < data.orders.length; i++){
-                                            //For Testing
-                                            console.log(data.orders[i].order_date);
-                                            console.log(data.orders[i].total_amount);
-                                            
-                                        }
-                                        
-
                                         /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
                                         let elementExistsTemp2 = document.getElementById("specificUser");
-                                        if(elementExistsTemp2!=null)
+                                        if(elementExistsTemp2 !== null)
                                         {
-                                            elementExistsTemp2.parentNode.removeChild(elementExistsTemp2);
+                                            elementExistsTemp2.remove();
                                         }
 
                                         let table = document.createElement("table");
-                                        //table.setAttribute("id", "data");
                                         table.setAttribute("id", "specificUser");
                                         let tableRowHeader = document.createElement("tr");
                                         let orderDateHeader = document.createElement("th");
@@ -192,6 +185,8 @@ dropdownMenu.addEventListener("change", function () {
 
                     tableRow.addEventListener("click", function (e) {
                         let selectedUserID = e.path[2].rows[1].children[2].textContent; //selected user id
+                        console.log(selectedUserID);
+                        
                         if(dateFrom.value !== "" && dateTo.value !== "")
                         {
                             let obj = {user_id: selectedUserID, dateFrom: dateFrom.value, dateTo:dateTo.value, expandUserOrder: 1};
@@ -207,31 +202,37 @@ dropdownMenu.addEventListener("change", function () {
 
                                         /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
 
-                                        // let table = document.createElement("table");
-                                        // // table.setAttribute("id", "data");
-                                        // let tableRowHeader = document.createElement("tr");
-                                        // let orderDateHeader = document.createElement("th");
-                                        // orderDateHeader.innerHTML = "Order Date";
-                                        // let totalHeader = document.createElement("th");
-                                        // totalHeader.innerHTML = "Amount";
-                                        // tableRowHeader.appendChild(nameHeader);
-                                        // tableRowHeader.appendChild(totalHeader);
-                                        // table.appendChild(tableRowHeader);
+                                        let elementExistsTemp2 = document.getElementById("specificUser");
+                                        if(elementExistsTemp2 !== null)
+                                        {
+                                            elementExistsTemp2.remove();
+                                        }
 
-                                        // for(let i = 0; i < data.orders.length; i++){
-                                        //     let tableRow = document.createElement("tr");
+                                        let table = document.createElement("table");
+                                        table.setAttribute("id", "specificUser");
+                                        let tableRowHeader = document.createElement("tr");
+                                        let orderDateHeader = document.createElement("th");
+                                        orderDateHeader.innerHTML = "Order Date";
+                                        let totalHeader = document.createElement("th");
+                                        totalHeader.innerHTML = "Amount";
+                                        tableRowHeader.appendChild(orderDateHeader);
+                                        tableRowHeader.appendChild(totalHeader);
+                                        table.appendChild(tableRowHeader);
 
-                                        //     let orderDateData = document.createElement("td");
-                                        //     orderDateData.innerHTML = data.orders[i].order_date;
+                                        for(let i = 0; i < data.orders.length; i++){
+                                            let tableRow = document.createElement("tr");
+
+                                            let orderDateData = document.createElement("td");
+                                            orderDateData.innerHTML = data.orders[i].order_date;
                         
-                                        //     let totalAmtData = document.createElement("td");
-                                        //     totalAmtData.innerHTML = data.orders[i].total_amount;
+                                            let totalAmtData = document.createElement("td");
+                                            totalAmtData.innerHTML = data.orders[i].total_amount;
                         
-                                        //     tableRow.appendChild(nameData);
-                                        //     tableRow.appendChild(totalAmtData);
-                                        //     table.appendChild(tableRow);
-                                        // }
-                                        // contentBody.appendChild(table);
+                                            tableRow.appendChild(orderDateData);
+                                            tableRow.appendChild(totalAmtData);
+                                            table.appendChild(tableRow);
+                                        }
+                                        contentBody.appendChild(table);
                                         
                                     }
                                         
