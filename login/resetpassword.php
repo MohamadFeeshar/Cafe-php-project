@@ -25,7 +25,7 @@
 
 <div class="main">
     <section>
-        <h1 class="pageTitle"> Add New User </h1>
+        <h1 class="pageTitle"> Reset Password </h1>
         <br>
     </section>
     
