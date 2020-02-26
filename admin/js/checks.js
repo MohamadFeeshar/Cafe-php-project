@@ -19,7 +19,7 @@ window.addEventListener("load", function () {
                     child = contentBody.lastChild;
                 }
                 let table = document.createElement("table");
-                table.setAttribute("id", "data");
+                table.setAttribute("id", "allUsers");
                 let tableRowHeader = document.createElement("tr");
                 let nameHeader = document.createElement("th");
                 nameHeader.innerHTML = "Name";
@@ -74,7 +74,7 @@ window.addEventListener("load", function () {
                                         
 
                                         /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
-                                        let elementExistsTemp2 = document.getElementById("newTable");
+                                        let elementExistsTemp2 = document.getElementById("specificUser");
                                         if(elementExistsTemp2!=null)
                                         {
                                             elementExistsTemp2.parentNode.removeChild(elementExistsTemp2);
@@ -82,7 +82,7 @@ window.addEventListener("load", function () {
 
                                         let table = document.createElement("table");
                                         //table.setAttribute("id", "data");
-                                        table.setAttribute("id", "newTable");
+                                        table.setAttribute("id", "specificUser");
                                         let tableRowHeader = document.createElement("tr");
                                         let orderDateHeader = document.createElement("th");
                                         orderDateHeader.innerHTML = "Order Date";
