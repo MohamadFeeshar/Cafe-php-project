@@ -43,13 +43,13 @@ $myTest=$db->getAllProducts();
                 if($row['available']==="available")
                 {
                     
-                    echo "<button class='button unavailablebtn'> Unvailable";
+                    echo "<a href='handleProductSatus.php?id=". $row['product_id']."&set=unavailable'> <button class='button unavailablebtn'> Unvailable";
                 }
                 else
                 {
-                    echo "<button class='button availablebtn'> Available";
+                    echo "<a href='handleProductSatus.php?id=". $row['product_id']."&set=available'> <button class='button availablebtn' >  Available ";
                 }
-                echo "</button> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
+                echo "</button> </a> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
             
             }
             

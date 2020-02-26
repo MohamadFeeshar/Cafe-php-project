@@ -254,6 +254,15 @@ class Database {
         $result=$stmt->rowCount();
         return $result;
     }
+    public function updateProductStatus($id, $status){
+        $sql = "UPDATE product SET available=:available WHERE product_id=:product_id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":available", $status);
+        $stmt->bindParam(":product_id", $id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return $result;
+    }
     public function updateUserwithPasswordWithPic($id, $username, $email, $password, $room, $ext, $profilePic){
         $sql = "UPDATE user SET user_name=:username, email=:email, user_password=:password, room=:room, ext=:ext, profile_pic=:profilePic WHERE user_id=:id";
         $stmt = $this->$connection->prepare($sql);
