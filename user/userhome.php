@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include('../userHeader.php');
 include('../login/login.php'); // Includes Login Script
 
@@ -10,7 +9,6 @@ if(isset($_SESSION['login_user'])){
 else {
   header("location: ../login");
 }
-
 
 require_once('../databaseFunction/DatabaseFunctions.php');
 $users;
