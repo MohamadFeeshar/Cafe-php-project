@@ -303,6 +303,13 @@ class Database {
         $result=$stmt->rowCount();
         return $result;
     }
+    public function deleteProduct($id){
+        $sql = "DELETE FROM product where product_id=?";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute([$id]);
+        $result=$stmt->rowCount();
+        return $result;
+    }
     
 
 }
