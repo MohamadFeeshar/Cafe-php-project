@@ -63,8 +63,9 @@ $categories=$db->getAllCategories();
     <section>
         <h1 class="pageTitle"> Add New Product </h1>
         <br>
+        <a href="./allProducts.php" class="addLink"><button>Back</button></a>
     </section>
-
+    
     <section class="content" >
     <form id="form" class="appnitro"  method="post" enctype="multipart/form-data" action="addproduct.php">	
       <div class="inp_container">
@@ -112,7 +113,7 @@ $categories=$db->getAllCategories();
    
     </form>
 
-
+    
     </section>
 
 
