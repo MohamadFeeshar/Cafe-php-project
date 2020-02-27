@@ -1,5 +1,5 @@
 <?php
-require_once '../databaseFunction/DatabaseFunctions.php';
+
 include '../login/login.php'; // Includes Login Script
 if (isset($_SESSION['login_user'])) {
     if ($_SESSION['user_type'] == 'user') {
@@ -10,43 +10,52 @@ if (isset($_SESSION['login_user'])) {
     header("location: ../login/");
 }
 $result = 0;
-$db = new Database("127.0.0.1", "phpmyadmin", "phpmyadmin", "cafedb");
-if (isset($_POST['submit'])) {
-    if (isset($_POST['password'])) {
+require_once '../databaseFunction/DatabaseFunctions.php';
+$dbs = new Database("localhost", $DBUserName, $DBPassword, "cafedb");
+if (isset($_POST['username'])) {
+    if (isset($_POST['password']) && !empty($_POST['password'])) {
         if (isset($_FILES['profilePic']) && !empty($_FILES['profilePic']['name']) && validateFile() == 1) {
             if (!validatePassword($_POST['password'], $_POST['confirmpassword'])) {
                 header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=1");
             } else {
-                $result = $db->updateUserwithPasswordWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+                $result = $dbs->updateUserwithPasswordWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+                $dbs->closeDBConnection();
                 header("location: ./showusers.php?suc=1");
             }
         } else if (isset($_FILES['profilePic']) && validateFile() == 0) {
+            $dbs->closeDBConnection();
             header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=2");
         } else {
-            $result = $db->updateUserWithPassword($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext']);
+            $result = $dbs->updateUserWithPassword($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext']);
+            $dbs->closeDBConnection();
             header("location: ./showusers.php?suc=2");
         }
 
     } else if (isset($_FILES['profilePic']) && validateFile() == 1) {
-        $result = $db->updateUserWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+        $result = $dbs->updateUserWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+        $dbs->closeDBConnection();
         header("location: ./showusers.php?suc=3");
     } else if (isset($_FILES['profilePic']) && validateFile() == 0) {
+        $dbs->closeDBConnection();
         header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=2");
     } else {
-        $result = $db->updateUser($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext']);
+        $result = $dbs->updateUser($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext']);
+        $dbs->closeDBConnection();
         header("location: ./showusers.php?suc=4");
     }
     if ($result) {
-        $db->closeDBConnection();
+        $dbs->closeDBConnection();
         header("location: ./showusers.php?success=1");
     }
     else{
-        
+        $dbs->closeDBConnection();
+        header("location: ./showusers.php?error=4");
     }
-} else {
-    header("location: ./showusers.php");
+}    else {
+    $dbs->closeDBConnection();
+    var_dump($_POST);
 }
-$db->closeDBConnection();
+$dbs->closeDBConnection();
 
 function validatePassword($pass, $confirm)
 {
