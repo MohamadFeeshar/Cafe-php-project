@@ -12,7 +12,7 @@ if (isset($_SESSION['login_user'])) {
 
 require_once '../databaseFunction/DatabaseFunctions.php';
 
-$db = new Database("localhost", $DBUserName, $DBPassword, "cafedb");
+$db = new Database("localhost", "root", "", "cafedb");
 $myTest = $db->getAllOrders();
 ?>
 

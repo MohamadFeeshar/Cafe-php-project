@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include('../userHeader.php');
 include('../login/login.php'); // Includes Login Script
 
@@ -20,8 +19,8 @@ $products;
 
 function getUsers()
 {
-    require '../configrationfile.php'; 
-    $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+    // require '../configrationfile.php'; 
+    $db = new Database("localhost","root","", "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
     $db->closeDBConnection();
@@ -37,12 +36,39 @@ function renderUsers($users)
 }
 
 // var_dump($_SESSION['user_id']);
+$retreiveallorders = $db->getAllOrders();
+$last_order=end($retreiveallorders);
+// $getUserId = $db->getAllUsers();
+echo '<table>
+            <tr>         
+            <th> Date </th>  
+            <th> Name </th>       
+            <th> Room </th>           
+            <th> Ext  </th>
+            <th> Total price </th>
+            
+        </tr>';
+
+// var_dump($_SESSION['user_id']);
+        if ($_SESSION['user_id'] == $last_order['user_id']) {
+// var_dump($userOrder['user_id']);
+        echo '<tr>';
+        echo '<td>'.$last_order['order_date'].'</td>';
+        echo '<td>'.$last_order['user_name'].'</td>';
+        echo '<td>'.$last_order['room'].'</td>';
+        echo '<td>'.$last_order['ext'].'</td>';
+        echo '<td>'.$last_order['amount'].'</td>';    
+        echo '</tr>';
+    }
+      
+   
+    echo '</table>';  
 
 
 function getRooms()
 {
-    require '../configrationfile.php'; 
-    $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+    // require '../configrationfile.php'; 
+    $db = new Database("localhost","root","", "cafedb");
     $GLOBALS[$rooms] = $db->getAllRooms();
     renderRooms($GLOBALS[$rooms]);
     $db->closeDBConnection();
@@ -57,8 +83,8 @@ function renderRooms($rooms)
 
 function getProducts()
 {
-    require '../configrationfile.php'; 
-    $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+    // require '../configrationfile.php'; 
+    $db = new Database("localhost","root","", "cafedb");
     $GLOBALS[$products] = $db->getAllProducts();
     renderProducts($GLOBALS[$products]);
     $db->closeDBConnection();
