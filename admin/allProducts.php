@@ -49,7 +49,7 @@ $myTest=$db->getAllProducts();
                 {
                     echo "<a href='handleProductSatus.php?id=". $row['product_id']."&set=available'> <button class='button availablebtn' >  Available ";
                 }
-                echo "</button> </a> <button class='button updatebtn'> Update </button> <button class='button deletebtn'> Delete  </button> </td></tr>"; 
+                echo "</button> </a> <button class='button updatebtn'> Update </button> <a href=./allProdcutsRemove.php?pId=".$row['product_id']."><button class='button deletebtn'> Delete  </button></a> </td></tr>"; 
             
             }
             
@@ -60,6 +60,15 @@ $myTest=$db->getAllProducts();
             
         
     </section>
+    <p id="snackbar"><?php
+        if(isset($_GET['error']) && $_GEt['error'] == 'delete'){
+            echo "Something went wrong with deletion";
+        }
+        else if (isset($_GET['success'])){
+            echo "successful deletion";
+        }
+        ?>
+    </p>
 </div>
 
 </body>
