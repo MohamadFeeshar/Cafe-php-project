@@ -65,7 +65,7 @@ $db->closeDBConnection();
           echo "Something went wrong";
         }
       }
-      else{
+      else if(isset($_GET['success'])){
         echo "successful";
       }
   ?></h2>
