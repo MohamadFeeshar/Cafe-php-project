@@ -4,13 +4,25 @@
   padding:0;
 }
 body{
-  height: 100vh;
+  height: 100%;
   font-family: "inherit;";
-  background-image:url("../imag/t1.jpg") ;
+  background-image: url("../imag/coffee.jpeg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-color:#D5BDAA ;
   opacity: 0.8;
+}
+.bg {
+  /* The image used */
+  
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .topnav {
   overflow: hidden;
