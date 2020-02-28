@@ -1,6 +1,6 @@
 <?php 
 global $DBUserName;
 global $DBPassword;
-$DBUserName="test";
-$DBPassword="test";
+$DBUserName="phpmyadmin";
+$DBPassword="phpmyadmin";
 ?>

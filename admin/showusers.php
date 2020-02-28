@@ -75,7 +75,7 @@ function renderUsers($users)
         }
     ?>
     </h2>
-
+    </div>
 </body>
 </html>
 

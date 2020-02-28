@@ -11,10 +11,10 @@
     border: solid;
     border-color: black;
     width: 27%;
-    height: 350%;
-    margin: 40px;
-    padding: 20px;
-    margin-top: 68px;
+    height: 300%;
+    margin: 0px 20px;
+    padding: 10px;
+    margin-top: 20px;
 }
 
 textarea {
@@ -43,6 +43,7 @@ textarea {
 }
 
 .main {
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
@@ -62,7 +63,7 @@ textarea {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: solid;
+   
     height: 80%;
     width: 100%;
 }
@@ -70,24 +71,26 @@ textarea {
 .productHolder {
     margin: 5px;
     padding: 2px;
-    width: 13rem;
+    width: 15rem;
     height: 13rem;
     border: solid;
+    
 }
 
 img {
-    border: solid;
+  
     width: 94%;
     height: 65%;
 }
 
 .priceHolder {
-    border: solid;
+    
     width: 94%;
     height: 20%;
 }
 
 .itemHolder {
+    border: solid;
     display: flex;
     flex-direction: row;
     border: solid;

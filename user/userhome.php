@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php include('../userHeader.php');
 include('../login/login.php'); // Includes Login Script
 
@@ -92,7 +91,7 @@ function renderProducts($products)
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body>
-<div class="main">
+<div class="main" style = "background-color:#D5BDAA;">
     <div class="addOrderForm">
         <!-- <form action="insertOrder.php" method="post"> -->
             <h3>Items</h3>
@@ -120,7 +119,7 @@ function renderProducts($products)
         <!-- </form> -->
     </div>
     <div class="orderOptions">
-    <div class="usersCBox">
+    <div class="usersCBox" style="height:10px" >
     <div name="users" id="users">
                 <?php getUsers();?>
             </div>

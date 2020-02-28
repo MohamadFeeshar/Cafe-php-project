@@ -12,6 +12,7 @@ if (isset($_SESSION['login_user'])) {
 require_once('../databaseFunction/DatabaseFunctions.php');
 $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
 $user = $db->getUser($_GET['id']);
+$db->closeDBConnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +65,7 @@ $user = $db->getUser($_GET['id']);
           echo "Something went wrong";
         }
       }
-      else{
+      else if(isset($_GET['success'])){
         echo "successful";
       }
   ?></h2>
