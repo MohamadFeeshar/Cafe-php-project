@@ -2,14 +2,14 @@
 //include DB Class
 
 include '../login/login.php'; // Includes Login Script
-include('../userHeader.php');
+include "adminHeader.php";
 require_once '../databaseFunction/DatabaseFunctions.php';
 $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
 
 $retreiveallorders = $db->getAllOrders();
-//var_dump(end($retreiveallorders));
+var_dump(end($retreiveallorders));
 // $getUserId = $db->getAllUsers();
-echo '<table id="data">
+echo '<table>
             <tr>
             <th> Date </th>
             <th> Name </th>

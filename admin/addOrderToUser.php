@@ -18,7 +18,7 @@ function getUsers()
 
  {      
     require '../configrationfile.php'; 
-    $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
+    $db = new Database("localhost",$DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
     $db->closeDBConnection();
@@ -36,8 +36,8 @@ function renderUsers($users)
 function getRooms()
 {
 
-    require '../configrationfile.php';
-    $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
+    require '../configrationfile.php'; 
+    $db = new Database("localhost",$DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$rooms] = $db->getAllRooms();
     renderRooms($GLOBALS[$rooms]);
     $db->closeDBConnection();
@@ -53,8 +53,8 @@ function renderRooms($rooms)
 function getProducts()
 {
 
-    require '../configrationfile.php';
-    $db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
+    require '../configrationfile.php'; 
+    $db = new Database("localhost",$DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$products] = $db->getAllProducts();
     renderProducts($GLOBALS[$products]);
     $db->closeDBConnection();

@@ -143,6 +143,8 @@ confirmBtn.addEventListener("click", function(e){
             dataObj.items.push(obj);
         }
     
+        console.log(dataObj);
+        
         
         $.ajax({
             url: "insertuserorder.php",
@@ -150,7 +152,6 @@ confirmBtn.addEventListener("click", function(e){
             dataType: "json",
             data: dataObj,
             success : function(data){
-                
                 if (data.code == "200"){
                     
                     alert("Order Placed Successfully");
@@ -167,7 +168,7 @@ confirmBtn.addEventListener("click", function(e){
                         productClicked[i] = false;
                         i++;
                     }
-                    window.location = "orders.php";
+                    // window.location = "orders.php";
     
                 } else {
                     alert("Failed to Place Order");
