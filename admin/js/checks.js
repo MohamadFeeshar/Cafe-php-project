@@ -51,13 +51,17 @@ window.addEventListener("load", function () {
                     table.appendChild(tableRow);
 
                     tableRow.addEventListener("click", function (e) {
-                        
+                      
+                        let specificOrderTable=document.getElementById('specificorder')
+                        if(specificOrderTable)
+                       specificOrderTable.setAttribute("style", "display:none;");
                         // console.log(e.composedPath()[1].children[2].textContent);
                          selectedUserID = e.composedPath()[1].children[2].textContent; //selected user id
                         // let selectedUserID = e.path[1].cells[2].textContent; //selected user id
                         
                         if(dateFrom.value !== "" && dateTo.value !== "")
                         {
+                              
                             let obj = {user_id: selectedUserID, dateFrom: dateFrom.value, dateTo:dateTo.value, expandUserOrder: 1};
                             // console.log(obj);
                                          
@@ -149,6 +153,7 @@ dropdownMenu.addEventListener("change", function () {
                     child = contentBody.lastChild;
                 }
                 let elementExistsTemp1 = document.getElementById("allUsers");
+
                 if(elementExistsTemp1!=null)
                 {
                     elementExistsTemp1.parentNode.removeChild(elementExistsTemp1);
@@ -186,6 +191,9 @@ dropdownMenu.addEventListener("change", function () {
                     table.appendChild(tableRow);
 
                     tableRow.addEventListener("click", function (e) {
+                       let specificOrderTable=document.getElementById('specificorder')
+                        if(specificOrderTable)
+                       specificOrderTable.setAttribute("style", "display:none;");
                          selectedUserID = e.composedPath()[1].children[2].textContent; //selected user id
                         // consolet selectedUserID = e.path[2].rows[1].children[2].textContent; //selected user idle.log(selectedUserID);
                         
@@ -225,7 +233,7 @@ dropdownMenu.addEventListener("change", function () {
                                             let orderDateData = document.createElement("td");
                                             orderDateData.innerHTML = data.orders[i].order_date;
                                             orderDateData.setAttribute('class','order-details')
-                                             orderDateData.setAttribute('id','data.orders[i].order_id')
+                                            orderDateData.setAttribute('id',data.orders[i].order_id)
 
                                             let totalAmtData = document.createElement("td");
                                             totalAmtData.innerHTML = data.orders[i].total_amount;
@@ -258,13 +266,15 @@ dropdownMenu.addEventListener("change", function () {
     });
 });
 function addListenerToOrdersData(){
+    
 
-var ordersDate=document.getElementsByClassName('order-details');
+let ordersDate=document.getElementsByClassName('order-details');
 
 if(ordersDate.length>=1){
    
     for (let item of ordersDate) {
        item.addEventListener('click',function(){
+           console.log(item)
                         let obj = {order_id: item.id, dateFrom: dateFrom.value, dateTo:dateTo.value, expandedOrder: 1};
                         
                         $.ajax({
