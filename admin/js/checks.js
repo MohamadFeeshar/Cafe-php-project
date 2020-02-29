@@ -51,13 +51,15 @@ window.addEventListener("load", function () {
                     table.appendChild(tableRow);
 
                     tableRow.addEventListener("click", function (e) {
-                        let selectedUserID = e.path[1].cells[2].textContent; //selected user id
-                        console.log(e.path);
+                        
+                        // console.log(e.composedPath()[1].children[2].textContent);
+                        let selectedUserID = e.composedPath()[1].children[2].textContent; //selected user id
+                        // let selectedUserID = e.path[1].cells[2].textContent; //selected user id
                         
                         if(dateFrom.value !== "" && dateTo.value !== "")
                         {
                             let obj = {user_id: selectedUserID, dateFrom: dateFrom.value, dateTo:dateTo.value, expandUserOrder: 1};
-                            console.log(obj);
+                            // console.log(obj);
                                          
                             $.ajax({
                                 url: "checksHelper.php",
@@ -67,7 +69,6 @@ window.addEventListener("load", function () {
                                 success: function (data) {
                                     if (data.code == "200")
                                     {
-                                        /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
                                         let elementExistsTemp2 = document.getElementById("specificUser");
                                         if(elementExistsTemp2 !== null)
                                         {
@@ -184,8 +185,8 @@ dropdownMenu.addEventListener("change", function () {
                     table.appendChild(tableRow);
 
                     tableRow.addEventListener("click", function (e) {
-                        let selectedUserID = e.path[2].rows[1].children[2].textContent; //selected user id
-                        console.log(selectedUserID);
+                        let selectedUserID = e.composedPath()[1].children[2].textContent; //selected user id
+                        // consolet selectedUserID = e.path[2].rows[1].children[2].textContent; //selected user idle.log(selectedUserID);
                         
                         if(dateFrom.value !== "" && dateTo.value !== "")
                         {
@@ -199,8 +200,6 @@ dropdownMenu.addEventListener("change", function () {
                                 success: function (data) {
                                     if (data.code == "200")
                                     {
-
-                                        /// HNA EL MAFROOD TE3REDY EL ORDER DATE ODAMO EL AMOUNT BETA3TO
 
                                         let elementExistsTemp2 = document.getElementById("specificUser");
                                         if(elementExistsTemp2 !== null)
