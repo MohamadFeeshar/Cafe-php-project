@@ -1,4 +1,4 @@
-<?php include('../userHeader.php');
+<?php 
 include('../login/login.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
@@ -37,33 +37,6 @@ function renderUsers($users)
 // var_dump($_SESSION['user_id']);
 $retreiveallorders = $db->getAllOrders();
 $last_order=end($retreiveallorders);
-// $getUserId = $db->getAllUsers();
-echo '<table>
-            <tr>         
-            <th> Date </th>  
-            <th> Name </th>       
-            <th> Room </th>           
-            <th> Ext  </th>
-            <th> Total price </th>
-            
-        </tr>';
-
-// var_dump($_SESSION['user_id']);
-        if ($_SESSION['user_id'] == $last_order['user_id']) {
-// var_dump($userOrder['user_id']);
-        echo '<tr>';
-        echo '<td>'.$last_order['order_date'].'</td>';
-        echo '<td>'.$last_order['user_name'].'</td>';
-        echo '<td>'.$last_order['room'].'</td>';
-        echo '<td>'.$last_order['ext'].'</td>';
-        echo '<td>'.$last_order['amount'].'</td>';    
-        echo '</tr>';
-    }
-      
-   
-    echo '</table>';  
-
-
 function getRooms()
 {
     require '../configrationfile.php'; 
@@ -105,32 +78,15 @@ function renderProducts($products)
 ?>
 
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Order</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="userhomestyle.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-</head>
+<?php include('../userHeader.php');?>
 <body>
-<div class="main" style = "background-color:#D5BDAA;">
+<div class="main">
     <div class="addOrderForm">
-        <!-- <form action="insertOrder.php" method="post"> -->
             <h3>Items</h3>
             <div class="orderedItems">
-                <!-- <div class="itemHolder">
-                    <h2 class="itemName">Coffee</h2>
-                    <h2 class="itemName ">5</h2>
-                    <button type="button">+</button>
-                    <h2 class="itemQuantity">1</h2>
-                    <button type="button">-</button>
-                    <button type="button">X</button>
-                </div> -->
             </div>
+            <br/>
+            <br/>
             <h3>Notes</h3>
             <textarea name="orderNotes" id="notes"></textarea><br>
             <label for="rooms">Room:</label>
@@ -138,10 +94,9 @@ function renderProducts($products)
             <?php getRooms();?>
             </select>
             <br>
-            <div class="separator"></div>
             <div class="total">
             </div>
-            <input type="submit" value="Confirm" class="confirmOrder">
+            <input type="submit" value="Confirm" class="savebtn">
         <!-- </form> -->
     </div>
     <div class="orderOptions">
@@ -150,7 +105,6 @@ function renderProducts($products)
                 <?php getUsers();?>
             </div>
             </div>
-        <div class="separator"></div>
         <div class="products">
             <?php getProducts();?>
         </div>
