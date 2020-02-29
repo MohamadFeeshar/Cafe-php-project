@@ -8,13 +8,13 @@
 
 }
 
-#data,#allUsers,#specificUser {
+#data,#allUsers,#specificUser, #specificorder {
   border-collapse: separate;
   height: 100%;
   display: block; 
   width: 100%;
 }
-#data td, #data th,#allUsers td, #allUsers th,#specificUser td,#specificUser th {
+#data td, #data th,#allUsers td, #allUsers th,#specificUser td,#specificUser th,#specificorder th,#specificorder td{
   border: 1px solid #ddd;
   padding: 0px;
   text-align: center;
@@ -33,14 +33,17 @@
 #specificUser tr:nth-child(even){background-color: #D5BDAA;}
 #specificUser tr:nth-child(odd){background-color: #D5BDAA;}
 #specificUser tr:hover {background-color: #A18B79;}
+#specificorder tr:nth-child(even){background-color: #D5BDAA;}
+#specificorder tr:nth-child(odd){background-color: #D5BDAA;}
+#specificorder tr:hover {background-color: #A18B79;}
 
 
-#data thead, #data tbody,#allUsers thead, #allUsers tbody,#specificUser thead, #specificUser tbody 
+#data thead, #data tbody,#allUsers thead, #allUsers tbody,#specificUser thead, #specificUser tbody,#specificorder thead,#specificorder tbody
 {
   display: block; 
   font-size: 15px;
 }
-#data th,#allUsers th,#specificUser th 
+#data th,#allUsers th,#specificUser th,#specificorder th
 {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -49,7 +52,7 @@
   font-size: 20px;
   
 }
-#data tbody,#allUsers tbody,#specificUser tbody {
+#data tbody,#allUsers tbody,#specificUser tbody,#specificorder tbody {
   height: 100%;      
   overflow-y: auto;   
   overflow-x: auto; 

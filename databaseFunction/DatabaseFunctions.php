@@ -212,8 +212,9 @@ class Database {
 
     public function getProductsOfOrder($order_id)
     {
+
         $products = array();
-        $sql = "SELECT p.product_img, p.price, op.quantity FROM product p, order_product op WHERE p.product_id = op.product_id AND op.order_id = :order_id;";
+        $sql = "SELECT p.product_name,p.product_img, p.price, op.quantity,o.order_date FROM product p, order_product op, orders o WHERE p.product_id = op.product_id AND op.product_id=o.order_id AND op.order_id = :order_id;";
         $stmt = $this->$connection->prepare($sql);
         $stmt->bindParam(":order_id", $order_id);
         $stmt->execute();
