@@ -17,7 +17,7 @@ $usersWthTotal;
 function getUsers()
 {
     require '../configrationfile.php';
-    $db = new Database("127.0.0.1", $DBUserName,$DBPassword, "cafedb");
+    $db = new Database("localhost", $DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
     renderUsers($GLOBALS[$users]);
 }
@@ -35,7 +35,7 @@ function renderUsers($users)
 function getUsersWthTotal()
 {
     require '../configrationfile.php';
-    $db = new Database("127.0.0.1", $DBUserName,$DBPassword, "cafedb");
+    $db = new Database("localhost", $DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$usersWthTotal] = $db->getUsernameWthTotal();
     renderUsersWthTotal($GLOBALS[$usersWthTotal]);
 }

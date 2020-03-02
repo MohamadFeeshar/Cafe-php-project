@@ -1,37 +1,78 @@
 <?php
-//include DB Class
+include '../login/login.php' ; // Includes Login Script
 
-include '../login/login.php'; // Includes Login Script
-include "adminHeader.php";
-require_once '../databaseFunction/DatabaseFunctions.php';
-$db = new Database("127.0.0.1", $DBUserName, $DBPassword, "cafedb");
+if(isset($_SESSION['login_user'])){
+    if($_SESSION['user_type']=='admin'){
+      header("location: ../login");     
+    } 
+}
+else {
+  header("location: ../login");
+}
+require_once('../databaseFunction/DatabaseFunctions.php');
 
-$retreiveallorders = $db->getAllOrders();
-//var_dump(end($retreiveallorders));
- $getUserId = $db->getAllUsers();
- include('../userHeader.php');
- echo '<div class="tableContainer">';
- echo '<table id="data">
-            <tr>
-            <th> Date </th>
-            <th> Name </th>
-            <th> Room </th>
-            <th> Ext  </th>
-            <th> Total price </th>
-        </tr>';
+$users;
+$usersWthTotal;
 
-// var_dump($_SESSION['user_id']);
-foreach ($retreiveallorders as $userOrder) {
-    if ($_SESSION['user_id'] == $userOrder['user_id']) {
-// var_dump($userOrder['user_id']);
-        echo '<tr>';
-        echo '<td>' . $userOrder['order_date'] . '</td>';
-        echo '<td>' . $userOrder['user_name'] . '</td>';
-        echo '<td>' . $userOrder['room'] . '</td>';
-        echo '<td>' . $userOrder['ext'] . '</td>';
-        echo '<td>' . $userOrder['amount'] . '</td>';
-        echo '</tr>';
-    }
+function getUsersWthTotal()
+{
+    require '../configrationfile.php';
+    $db = new Database("localhost", $DBUserName,$DBPassword, "cafedb");
+    $GLOBALS[$usersWthTotal] = $db->getUsernameWthTotal();
+    renderUsersWthTotal($GLOBALS[$usersWthTotal]);
 }
 
-echo '</table>';
+function renderUsersWthTotal($usersWthTotal)
+{
+    echo '<table id="data" >
+    <tr>
+        <th>Name</th>
+        <th>Total Amount</th>
+    </tr>';
+
+
+foreach ($usersWthTotal as $user) {
+    echo '<tr>';
+    echo '<td>'.$user['user_name'].'</td>';
+    echo '<td>'.$user['total_amount'].'</td>';
+    echo '</tr>';
+}
+
+echo '</table>';  
+}
+
+?>
+
+<!DOCTYPE Html>
+<html>
+
+<?php  include "../userHeader.php";?>
+
+<div class="main">
+    <section>
+        <h1 class="pageTitle"> My Orders </h1>
+        <br>
+    </section>
+    
+    <section>
+     Date From: <input type="date" placeholder="Date from" id="date-from">
+     Date To: <input type="date" placeholder="Date to" id="date-to"> <br> <br>
+     
+     <input type="hidden" value="<?php echo $_SESSION['user_id']?>" id="getUserId">
+       
+     <div>
+        <button id="getOrders" style="background-color:yellow; width:150px;">Show</button>
+     </div>
+     </select>
+    </section>
+
+    <section class="content"> 
+
+    </section>
+    <section id="details"> 
+
+    </section>
+    </div>
+<script src="displayorder.js"></script>
+</body>
+</html>

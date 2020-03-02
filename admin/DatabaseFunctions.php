@@ -218,7 +218,6 @@ class Database {
         $stmt->bindParam(":order_id", $order_id);
         $stmt->execute();
         $products = $stmt->fetchAll();
-
         return $products; 
     }
 
@@ -308,6 +307,20 @@ class Database {
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute([$id]);
         $result=$stmt->rowCount();
+        return $result;
+    }
+
+    public function deleteOrder($id){
+        // delete foriegn_key
+        $sqlforiegn = "DELETE FROM order_product where order_id=?";
+        $stmtforiegn = $this->$connection->prepare($sqlforiegn);
+        $stmtforiegn->execute([$id]);
+        $result=$stmtforiegn->rowCount();
+        // delete primary_key
+        $sqlprimay = "DELETE FROM orders where order_id=?";
+        $stmtprimay = $this->$connection->prepare($sqlprimay);
+        $stmtprimay->execute([$id]);
+        $result=$stmtprimay->rowCount();
         return $result;
     }
     
