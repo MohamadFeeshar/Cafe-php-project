@@ -9,7 +9,7 @@ class Database {
         try {
             // $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";port=3306;";
             $dsn = "mysql:dbname=".$dbname.";host=".$dbhost.";";
-            // echo "hello";
+            echo "hello";
             $this->$connection = new PDO($dsn, $dbuser, $dbpass);
             $this->$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
@@ -18,7 +18,7 @@ class Database {
             echo $sql . "<br>" . $e->getMessage();
         }
     }
-
+   
     public function closeDBConnection() {
         $this->connection = null;
     }
@@ -310,19 +310,7 @@ class Database {
         return $result;
     }
 
-    public function deleteOrder($id){
-        // delete foriegn_key
-        $sqlforiegn = "DELETE FROM order_product where order_id=?";
-        $stmtforiegn = $this->$connection->prepare($sqlforiegn);
-        $stmtforiegn->execute([$id]);
-        $result=$stmtforiegn->rowCount();
-        // delete primary_key
-        $sqlprimay = "DELETE FROM orders where order_id=?";
-        $stmtprimay = $this->$connection->prepare($sqlprimay);
-        $stmtprimay->execute([$id]);
-        $result=$stmtprimay->rowCount();
-        return $result;
-    }
+    
     
 
 }

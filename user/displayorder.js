@@ -1,7 +1,6 @@
 let dateFrom = document.getElementById("date-from");
 let dateTo = document.getElementById("date-to");
 let userId = document.getElementById("getUserId");
-let getDetails = document.getElementById("details");
 
 window.addEventListener("load", function () {
     // console.log(userId);
@@ -53,55 +52,17 @@ window.addEventListener("load", function () {
                     cancelButton.addEventListener('click', function () {
                         const id = this.getAttribute('order-id');
                         $.ajax({
-                            url: "removeorder.php?order_id=" + id,
+                            url: "./removeorder.php?order_id=" + id,
                             type: "get",
                             dataType: "json",
                             success: function () {
-                                cancelButton.parentNode.parentNode.remove()
+                                cancelButton.parentNode.remove();
                             }
                         }
                         );
 
                     });
 
-                    // tableRow.addEventListener("click", function () {
-                        
-                    //     const order_id = this.querySelector(".btn-delete").getAttribute('order-id');
-                    //     // let dataObj = { user_id: userId.value, dateFrom: "2020-01-01", dateTo: "2020-12-30", expandUserOrder: 1 };  //change the user id
-                    //     $.ajax({
-                    //         url: "orderdetails.php?order_id="+order_id,
-                    //         type: "post",
-                    //         dataType: "json",
-                    //         data: dataObj,
-                    //         success: function (data) {
-
-                    //             if (data.code == "200") {
-
-                    //                 console.log(data);
-
-                    //                 // let table = document.createElement("table");
-                    //                 // table.setAttribute("id", "allUsers");
-                    //                 // let tableRowHeader = document.createElement("tr");
-                    //                 // let productName = document.createElement("th");
-                    //                 // productName.innerHTML = "Order Name";
-                    //                 // let productPrice = document.createElement("th");
-                    //                 // productPrice.innerHTML = "Price";
-                    //                 // let quantity = document.createElement("th");
-                    //                 // quantity.innerHTML = "Quantity";
-                    //                 // let orderDate = document.createElement("th");
-                    //                 // orderDate.innerHTML = "Order Date";
-                    //                 // tableRowHeader.appendChild(productName);
-                    //                 // tableRowHeader.appendChild(productPrice);
-                    //                 // tableRowHeader.appendChild(quantity);
-                    //                 // tableRowHeader.appendChild(orderDate);
-                    //                 // table.appendChild(tableRowHeader);
-                    //                 // getDetails.appendChild(table);
-
-                                    
-                    //             }
-                    //         }
-                    //     });
-                    // });
                     tableRow.appendChild(orderDateData);
                     tableRow.appendChild(totalAmtData);
                     tableRow.appendChild(cancelButton);

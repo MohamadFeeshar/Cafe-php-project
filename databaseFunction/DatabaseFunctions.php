@@ -325,7 +325,18 @@ class Database {
         $result=$stmt->rowCount();
         return $result;
     }
-    
+    public function deleteOrder($id){
+        $sqlforiegn = "DELETE FROM order_product where order_id=?";
+        $stmtforiegn = $this->$connection->prepare($sqlforiegn);
+        $stmtforiegn->execute([$id]);
+        $result=$stmtforiegn->rowCount();
+        // delete primary_key
+        $sqlprimary = "DELETE FROM orders where order_id=?";
+        $stmtprimary = $this->$connection->prepare($sqlprimary);
+        $stmtprimary->execute([$id]);
+        $result=$stmtprimary->rowCount();
+        return $result;
+    }
 
 }
 

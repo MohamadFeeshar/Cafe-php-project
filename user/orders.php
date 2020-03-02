@@ -73,6 +73,7 @@ echo '</table>';
 
     </section>
     </div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="displayorder.js"></script>
 </body>
 </html>
