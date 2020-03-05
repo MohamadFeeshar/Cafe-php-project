@@ -18,7 +18,7 @@ if(isset($_SESSION['login_user'])){
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../CSS/form.css">
+    <link rel="stylesheet" href="../CSS/login.css">
     <style>
         body{
             height:90vh;
@@ -52,7 +52,7 @@ if(isset($_SESSION['login_user'])){
         <span class="error"><?php echo $error; ?></span>
 
     </form>
-    <a href="resetpassword.php"><button class="forgetLink">Forget Password ?</button> </a>
+    <a href="/login/resetpasswordForm.php"><button class="forgetLink">Forget Password ?</button> </a>
     </section>
 </div>
 
