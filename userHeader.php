@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/userhomestyle.css">
+    <link rel="stylesheet" href="../CSS/userOrders.css">
+    
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
     <title>User</title>

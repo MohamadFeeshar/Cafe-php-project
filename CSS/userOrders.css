@@ -1,0 +1,152 @@
+.mainpart1 label
+{
+    margin-left: 12%;
+    margin-top: 1%;
+}
+.mainpart2
+{
+   margin-top: -5%;
+}
+
+.pageTitle2
+{
+
+  margin-left:22%;
+  margin-bottom:0;
+  margin-top:1%;
+  font-size: 3.5em;
+  color:#9A4D37;
+
+}
+.content
+{
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  width: 50%;
+  margin-left: 42%;
+  max-width: 50%;
+
+}
+.fomrLable
+{
+    color:#9A4D37;
+    font-size: 150%;
+}
+
+.formInput{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submit {
+    width: 100%;
+    background-color: #9A4D37;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.submit:hover {
+    background-color: #9A4000;
+  }
+.save {
+    width: 30%;
+    background-color: #9A4D37;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.save:hover {
+    background-color: #9A4000;
+  }
+.reset {
+    width: 30%;
+    background-color: rgb(124, 124, 124);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+.reset:hover {
+    background-color: #6b6b65;
+  }
+.error
+{
+    color: red;
+}
+
+
+.addLink
+{
+  float:right;
+  margin-right:36%;
+  background:none;
+  color:#9A4D37;
+  width: 100px;
+  border: none;
+}
+.addLink:hover
+{
+  color:#95a979;
+  font-size: 90%;
+  cursor: pointer;
+}
+
+
+.forgetLink
+{
+
+  background:none;
+  width: 100px;
+  border: none;
+}
+.forgetLink:hover
+{
+  color:#95a979;
+  font-size: 90%;
+  cursor: pointer;
+}
+
+
+
+#cancelOrder
+{
+    margin-left: 25%;
+    margin-top: 5%;
+    background-color: whitesmoke;  
+    color :#43223A;;
+    border: 2px solid rgba(244, 67, 54,0.7);
+}
+#cancelOrder:hover {
+  background-color:rgba(244, 67, 54,0.7);
+  color: whitesmoke;
+
+}
+
+.showbtn {
+    background-color: whitesmoke; 
+    color: black; 
+    border: 2px solid rgba(76, 175, 80,0.7);
+    width:230px;
+    margin-left: 27%;
+  }
+.showbtn:hover {
+    background-color: rgba(76, 175, 80,0.7);
+    color: whitesmoke;
+  }

@@ -31,47 +31,47 @@ function renderUsersWthTotal($usersWthTotal)
     </tr>';
 
 
-foreach ($usersWthTotal as $user) {
-    echo '<tr>';
-    echo '<td>'.$user['user_name'].'</td>';
-    echo '<td>'.$user['total_amount'].'</td>';
-    echo '</tr>';
-}
+    foreach ($usersWthTotal as $user) {
+        echo '<tr>';
+        echo '<td>'.$user['user_name'].'</td>';
+        echo '<td>'.$user['total_amount'].'</td>';
+        echo '</tr>';
+    }
+    
 
 echo '</table>';  
 }
 
 ?>
 
-<!DOCTYPE Html>
-<html>
 
 <?php  include "../userHeader.php";?>
 
-<div class="main">
+<div >
     <section>
-        <h1 class="pageTitle"> My Orders </h1>
+        <h1 class="pageTitle2"> My Orders </h1>
         <br>
     </section>
     
-    <section>
-     Date From: <input type="date" placeholder="Date from" id="date-from">
-     Date To: <input type="date" placeholder="Date to" id="date-to"> <br> <br>
+    <section class="mainpart1">
+     <label> Date From:</label> <input type="date" placeholder="Date from" id="date-from"> 
+     <label>Date To:</label> <input type="date" placeholder="Date to" id="date-to">   <br>   <br>
      
      <input type="hidden" value="<?php echo $_SESSION['user_id']?>" id="getUserId">
        
-     <div>
-        <button id="getOrders" style="background-color:yellow; width:150px;">Show</button>
-     </div>
+    
+    <button id="getOrders" class="showbtn" >Show</button>
+     <br>   <br>
+     
      </select>
     </section>
 
-    <section class="content"> 
+    <section style="margin-left:18%;overflow-y: scroll; height:200px; width: 34%;" > 
+        <div class="mainpart2" >
+       </div>
 
     </section>
-    <section id="details"> 
-
-    </section>
+  
     </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="displayorder.js"></script>

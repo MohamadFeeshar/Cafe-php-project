@@ -38,7 +38,7 @@ function renderUsers($users)
 $retreiveallorders = $db->getAllOrders();
 $last_order=end($retreiveallorders);
 // $getUserId = $db->getAllUsers();
-echo '<table>
+/*echo '<table>
             <tr>         
             <th> Date </th>  
             <th> Room </th>           
@@ -61,7 +61,7 @@ echo '<table>
    
     echo '</table>';  
 
-
+*/
 function getRooms()
 {
     require '../configrationfile.php'; 
