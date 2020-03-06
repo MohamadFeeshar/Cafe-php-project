@@ -22,3 +22,6 @@ if(isset($_GET['pId'])){
         header('location: ./allProducts.php?error=delete');
     }
 }
+else{
+  echo "dead";
+}
