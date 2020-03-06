@@ -59,7 +59,7 @@ echo '</table>';
      
      <input type="hidden" value="<?php echo $_SESSION['user_id']?>" id="getUserId">
        
-     <a href="/user/orders.php">
+     <a href="./orders.php">
     <button  class="showbtn" style=" margin-left: 20%; width:150px" >Show All Orders ?</button>
     </a>
     <br>   <br>
