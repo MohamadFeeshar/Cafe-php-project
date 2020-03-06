@@ -69,45 +69,7 @@ window.addEventListener("load", function () {
                     tableRow.appendChild(cancelButton);
                     table.appendChild(tableRow);
                 }
-                for (let i = 0; i < data.orders.length; i++) {
-                    let tableRow = document.createElement("tr");
-                    // tableRow.style.cursor = "pointer";
-
-                    let orderDateData = document.createElement("td");
-                    orderDateData.innerHTML = data.orders[i].order_date;
-
-                    let totalAmtData = document.createElement("td");
-                    totalAmtData.innerHTML = data.orders[i].total_amount;
-
-                    // let cancelButtonLink = document.createElement("a");
-                    // cancelButtonLink.href = './displaymanual.php';
-
-
-                    let cancelButton = document.createElement("button");
-                    cancelButton.innerHTML = "Cancel?";
-                    cancelButton.setAttribute("id", "cancelOrder");
-
-                    cancelButton.classList.add('btn-delete');
-                    cancelButton.setAttribute('order-id', data.orders[i].order_id);
-                    cancelButton.addEventListener('click', function () {
-                        const id = this.getAttribute('order-id');
-                        $.ajax({
-                            url: "./removeorder.php?order_id=" + id,
-                            type: "get",
-                            dataType: "json",
-                            success: function () {
-                                cancelButton.parentNode.remove();
-                            }
-                        }
-                        );
-
-                    });
-
-                    tableRow.appendChild(orderDateData);
-                    tableRow.appendChild(totalAmtData);
-                    tableRow.appendChild(cancelButton);
-                    table.appendChild(tableRow);
-                }
+              
                 contentBody.appendChild(table);
             }
             else {
@@ -201,3 +163,4 @@ getOrdersBtn.addEventListener("click", function () {
     }
 
 });
+

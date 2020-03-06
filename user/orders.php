@@ -55,12 +55,17 @@ echo '</table>';
     
     <section class="mainpart1">
      <label> Date From:</label> <input type="date" placeholder="Date from" id="date-from"> 
-     <label>Date To:</label> <input type="date" placeholder="Date to" id="date-to">   <br>   <br>
+     <label>Date To:</label> <input type="date" placeholder="Date to" id="date-to">  
      
      <input type="hidden" value="<?php echo $_SESSION['user_id']?>" id="getUserId">
        
-    
+     <a href="/user/orders.php">
+    <button  class="showbtn" style=" margin-left: 20%; width:150px" >Show All Orders ?</button>
+    </a>
+    <br>   <br>
     <button id="getOrders" class="showbtn" >Show</button>
+
+
      <br>   <br>
      
      </select>
