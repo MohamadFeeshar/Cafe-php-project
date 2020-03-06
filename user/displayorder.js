@@ -134,12 +134,12 @@ getOrdersBtn.addEventListener("click", function () {
                 if (data.code == "200") {
                     let contentBody = document.getElementsByClassName("mainpart2")[0];
 
-                    let elementExistsTemp1 = document.getElementById("allUsers");
+                    let elementExistsTemp1 = document.getElementById("data");
                     if (elementExistsTemp1 != null) {
                         elementExistsTemp1.remove();
                     }
                     let table = document.createElement("table");
-                    table.setAttribute("id", "allUsers");
+                    table.setAttribute("id", "data");
                     let tableRowHeader = document.createElement("tr");
                     let orderDateHeader = document.createElement("th");
                     orderDateHeader.innerHTML = "Order Date";
@@ -164,6 +164,7 @@ getOrdersBtn.addEventListener("click", function () {
 
                         let cancelButton = document.createElement("button");
                         cancelButton.innerHTML = "Cancel?";
+                        cancelButton.setAttribute("id", "cancelOrder");
 
                         cancelButton.classList.add('btn-delete');
                         cancelButton.setAttribute('order-id', data.orders[i].order_id);
