@@ -71,7 +71,7 @@ echo '</table>';
      </select>
     </section>
 
-    <section style="margin-left:18%;overflow-y: scroll; height:200px; width: 34%;" > 
+    <section style="margin-left:18%; height:200px; width: 100%;" > 
         <div class="mainpart2" >
        </div>
 
