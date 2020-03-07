@@ -64,8 +64,7 @@ function renderProducts($products)
 {
     foreach ($products as $product) {
         echo "<div class=\"productHolder\" >";
-        // echo "<img src=\"".$product['product_img']."\">";
-        echo "<img src='../imag/tea.png'>";
+        echo "<img src=\"../imag/".$product['product_img']."\" >";
         echo "<div class=\"priceHolder\">";
         echo "<h3>".$product['product_name']."<h3/>";
         echo "<h3>".$product['price']."<h3/>";

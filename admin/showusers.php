@@ -14,7 +14,6 @@ $users;
 
 function getUsers()
 {
-
     require '../configrationfile.php';
     $db = new Database("127.0.0.1", $DBUserName,$DBPassword, "cafedb");
     $GLOBALS[$users] = $db->getAllUsers();
@@ -37,7 +36,9 @@ function renderUsers($users)
         echo '<tr>';
         echo '<td>'.$user['user_name'].'</td>';
         echo '<td>'.$user['room'].'</td>';
-        echo "<td> <img src= \"".$user['profile_pic']."\"/> </td>";
+        if(empty($user['profile_pic'])!==true)
+        echo "<td> <img src= \"../imag/".$user['profile_pic']."\"/> </td>";
+        else  echo "<td> <img src= \"../imag/download.png\"/> </td>";
         echo '<td>'.$user['ext'].'</td>';
         echo "<td> <a href=\"edituser.php?id=".$user['user_id']."\"><button class='button updatebtn'> Update </button></a>";
         echo "<a href=\"deleteuser.php?id=".$user['user_id']."\"><button class='button deletebtn'> Delete  </button></a> </td>"; 
