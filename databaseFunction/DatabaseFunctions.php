@@ -73,7 +73,7 @@ class Database {
     public function getAllOrders()
     {
         $allOrders = array();
-        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
+        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount, u.user_id, o.notes FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
