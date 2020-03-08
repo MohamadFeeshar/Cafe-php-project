@@ -37,7 +37,7 @@ $myTest=$db->getAllProducts();
                 </tr>
             <?php foreach($myTest as $row)
             {    
-                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td> <img src = \"" . 
+                echo "<tr><td>" . $row['product_name'] . "</td><td>" . $row['price'] ."</td><td> <img src = \"../imag/" . 
                 $row['product_img'] ."\" style='width:50%;height:25%'></td><td> ";
                 
                 if($row['available']==="available")

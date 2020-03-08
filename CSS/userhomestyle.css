@@ -46,6 +46,10 @@ overflow: hidden;
 
 background-color:#D5BDAA;
 }
+.mainpart2{
+  display: flex;
+  width: 100%;
+}
 
 .orderOptions {
 width: 60%;
@@ -128,17 +132,18 @@ color: whitesmoke;
 
 
 
-#data{
+#data,#specificorder{
 border-collapse: separate;
-height: 50%;
+height: 40%;
 display: block; 
 width:fit-content;
 margin-top: 5%;
+overflow-y: scroll;
 
 
 
 }
-#data td, #data th{
+#data td, #data th,#specificorder td, #specificorder th{
 border: 1px solid #ddd;
 padding: 0px;
 text-align: center;

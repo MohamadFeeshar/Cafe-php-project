@@ -19,5 +19,14 @@ if(isset($_POST["expandUserOrder"])) {
     $db = new Database("localhost", $DBUserName, $DBPassword, "cafedb");
     $usersWthTotal = $db->getOrdersOfUser($_POST["dateFrom"], $_POST["dateTo"], $_POST["user_id"]);
     echo json_encode(['code'=>200, 'orders'=> $usersWthTotal]);
+
+  }
+  if(isset($_POST["expandedOrder"])){
+    
+    require '../configrationfile.php';
+    $db = new Database("localhost", $DBUserName, $DBPassword, "cafedb");
+    $ordersDetails = $db->getProductsOfOrder($_POST["order_id"]);
+    
+    echo json_encode(['code'=>200, 'ordersdetails'=> $ordersDetails]);
 }
 ?>

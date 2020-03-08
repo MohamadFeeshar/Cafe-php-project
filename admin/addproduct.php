@@ -41,7 +41,13 @@ function validateFile(){
          $errors.="Extension is not allowed, please choose a JPEG or PNG image.";
      }      
      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"files/".$file_name);
+      
+      if (move_uploaded_file($_FILES['myfile']['tmp_name'],dirname(__DIR__, 1)."/imag/".basename($_FILES['myfile']['name']))) {
+        echo "Uploaded";
+    } else {
+       echo "File was not uploaded";
+    }
+        
          return 1;
       
      }else{
