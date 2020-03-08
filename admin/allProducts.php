@@ -49,7 +49,7 @@ $myTest=$db->getAllProducts();
                 {
                     echo "<a href='handleProductSatus.php?id=". $row['product_id']."&set=available'> <button class='button availablebtn' >  Available ";
                 }
-                echo "</button> </a> <button class='button updatebtn'> Update </button> <a href=./allProdcutsRemove.php?pId=".$row['product_id']."><button class='button deletebtn'> Delete  </button></a> </td></tr>"; 
+                echo "</button> </a> <a href='editproduct.php?id=".$row['product_id']."' > <button class='button updatebtn'> Update </button> <a/> <a href=./allProdcutsRemove.php?pId=".$row['product_id']."><button class='button deletebtn'> Delete  </button></a> </td></tr>"; 
             
             }
             
