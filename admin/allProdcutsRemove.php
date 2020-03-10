@@ -13,7 +13,6 @@ else {
 require_once('../databaseFunction/DatabaseFunctions.php');
 $db = new Database("127.0.0.1",$DBUserName,$DBPassword, "cafedb");
 if(isset($_GET['pId'])){
-    echo $_GET['pId'];
     $result = $db->deleteProduct($_GET['pId']);
     if($result){
         header('location: ./allProducts.php?success=delete');

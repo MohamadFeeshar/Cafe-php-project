@@ -307,8 +307,14 @@ class Database {
     public function deleteProduct($id){
         $sql = "DELETE FROM product where product_id=?";
         $stmt = $this->$connection->prepare($sql);
-        $stmt->execute([$id]);
-        $result=$stmt->rowCount();
+        try{       
+            $stmt->execute([$id]);
+            $result=$stmt->rowCount();
+        }
+        catch (Exception $e){
+            return false;
+        }
+        
         return $result;
     }
     public function addUser($username, $email, $password, $room, $ext){

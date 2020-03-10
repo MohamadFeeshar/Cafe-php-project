@@ -26,7 +26,17 @@ $myTest=$db->getAllProducts();
         <a href="addproduct.php"><button class="addLink">add product ?</button> </a>
         <br>
     </section>
-
+    <section>
+        <p class="errorMsg"><?php
+            if(isset($_GET['error']) && $_GET['error'] == 'delete'){
+                echo "Something went wrong with deletion";
+            }
+            else if (isset($_GET['success'])){
+                echo "successful deletion";
+            }
+            ?>
+        </p>
+    </section>
     <section class="content">
             <table id="data">
                 <tr>
@@ -60,15 +70,7 @@ $myTest=$db->getAllProducts();
             
         
     </section>
-    <p id="snackbar"><?php
-        if(isset($_GET['error']) && $_GEt['error'] == 'delete'){
-            echo "Something went wrong with deletion";
-        }
-        else if (isset($_GET['success'])){
-            echo "successful deletion";
-        }
-        ?>
-    </p>
+   
 </div>
 
 </body>
