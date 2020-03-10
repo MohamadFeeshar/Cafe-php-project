@@ -45,16 +45,17 @@ if (isset($_SESSION['login_user'])) {
 
     </section> 
     </div>
-    <!-- If something went wrong-->
-  
-  <h2>
-    <?php
-      if(isset($_GET['error'])){
-        echo "Something went wrong";
-      }
-    ?>
-  </h2>
-
+    <p class="errorMsg">
+      <?php
+        if(isset($_GET['error'])){
+          if($_GET['error'] == 'duplicate'){
+              echo "duplicate entry please check data entered";
+          } else{
+            echo "Something went wrong";
+          }
+        }
+      ?>
+    </p>
 </body>
 
 </html>
