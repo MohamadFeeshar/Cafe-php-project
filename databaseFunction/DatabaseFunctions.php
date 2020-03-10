@@ -73,7 +73,7 @@ class Database {
     public function getAllOrders()
     {
         $allOrders = array();
-        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount, u.user_id FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
+        $sql = "SELECT o.order_id, o.order_date, u.user_name, o.room, u.ext, o.amount, u.user_id, o.notes FROM user u, orders o WHERE u.user_id = o.user_id AND o.order_status <>\"done\";";
         $stmt = $this->$connection->prepare($sql);
         $stmt->execute();
         $allOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -173,6 +173,15 @@ class Database {
         $result=$stmt->fetch();
         return $result;
     }
+    public function getProduct($id)
+    {
+        $sql =  "SELECT * FROM product where product_id=?";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->execute([$id]);
+        $result=$stmt->fetch();
+        return $result;
+    }
+
 
     public function getUsernameWthTotal($user_id)
     {
@@ -212,7 +221,6 @@ class Database {
 
     public function getProductsOfOrder($order_id)
     {
-
         $products = array();
         $sql = "SELECT p.product_name,p.product_img, p.price, op.quantity FROM product p, order_product op WHERE p.product_id = op.product_id AND op.order_id = :order_id;";
         $stmt = $this->$connection->prepare($sql);
@@ -255,6 +263,57 @@ class Database {
         $result=$stmt->rowCount();
         return $result;
     }
+    
+    public function updateProduct($product_id, $product_name, $price, $available, $category_name){
+        $tempsql = "SELECT category_id FROM category where category_name=?;"; 
+        $stmt = $this->$connection->prepare($tempsql); 
+        try{       
+        $stmt->execute([$category_name]);      
+        $res=$stmt->fetchAll();
+
+        $sql = "UPDATE product SET product_name=:product_name, price=:price, available=:available, category_id=:category_id WHERE product_id=:product_id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":product_name", $product_name);
+        $stmt->bindParam(":price", $price);
+        $stmt->bindParam(":available", $available);
+        $stmt->bindParam(":category_id",intval($res[0]['category_id']));
+        $stmt->bindParam(":product_id", $product_id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return  $result;
+
+        }
+        catch (Exception $e){
+        return $e;
+        }
+    }
+
+    public function updateProductWithImage($product_img, $product_id, $product_name, $price, $available, $category_name){
+        $tempsql = "SELECT category_id FROM category where category_name=?;"; 
+        $stmt = $this->$connection->prepare($tempsql); 
+        try{       
+        $stmt->execute([$category_name]);      
+        $res=$stmt->fetchAll();
+
+        $sql = "UPDATE product SET product_img=:product_img,product_name=:product_name, price=:price, available=:available, category_id=:category_id WHERE product_id=:product_id";
+        $stmt = $this->$connection->prepare($sql);
+        $stmt->bindParam(":product_img", $product_img);
+        $stmt->bindParam(":product_name", $product_name);
+        $stmt->bindParam(":price", $price);
+        $stmt->bindParam(":available", $available);
+        $stmt->bindParam(":category_id",intval($res[0]['category_id']));
+        $stmt->bindParam(":product_id", $product_id);
+        $stmt->execute();
+        $result=$stmt->rowCount();
+        return  $result;
+
+        }
+        catch (Exception $e){
+        return $e;
+        }
+    }
+
+
     public function updateProductStatus($id, $status){
         $sql = "UPDATE product SET available=:available WHERE product_id=:product_id";
         $stmt = $this->$connection->prepare($sql);
