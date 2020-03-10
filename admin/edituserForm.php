@@ -18,7 +18,7 @@ if (isset($_POST['username'])) {
             if (!validatePassword($_POST['password'], $_POST['confirmpassword'])) {
                 header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=1");
             } else {
-                $result = $dbs->updateUserwithPasswordWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+                $result = $dbs->updateUserwithPasswordWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['room'], $_POST['ext'], $_FILES['profilePic']['name']);
                 $dbs->closeDBConnection();
                 header("location: ./showusers.php?suc=1");
             }
@@ -32,12 +32,12 @@ if (isset($_POST['username'])) {
         }
 
     } else if (isset($_FILES['profilePic']) && validateFile() == 1) {
-        $result = $dbs->updateUserWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext'], $_POST['profilePic']);
+        $result = $dbs->updateUserWithPic($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext'], $_FILES['profilePic']['name']);
         $dbs->closeDBConnection();
         header("location: ./showusers.php?suc=3");
     } else if (isset($_FILES['profilePic']) && validateFile() == 0) {
         $dbs->closeDBConnection();
-        header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=2");
+        header("location: ./edituser.php?id=" . $_POST['userId'] . "&error=3");
     } else {
         $result = $dbs->updateUser($_POST['userId'], $_POST['username'], $_POST['email'], $_POST['room'], $_POST['ext']);
         $dbs->closeDBConnection();
@@ -46,12 +46,12 @@ if (isset($_POST['username'])) {
     if ($result) {
         $dbs->closeDBConnection();
         header("location: ./showusers.php?success=1");
-    }
-    else{
+    } else {
+        echo "bang";
         $dbs->closeDBConnection();
         header("location: ./showusers.php?error=4");
     }
-}    else {
+} else {
     $dbs->closeDBConnection();
     var_dump($_POST);
 }
@@ -69,26 +69,29 @@ function validatePassword($pass, $confirm)
 function validateFile()
 {
     if (isset($_FILES['profilePic'])) {
-        $errors = "";
         $file_name = $_FILES['profilePic']['name'];
-        if ($file_name) {
-            $file_type = $_FILES['profilePic']['type'];
-            $ext = explode('.', $_FILES['profilePic']['name']);
-            $file_ext = strtolower(end($ext));
-            $extensions = array("jpeg", "jpg", "png");
-            if (in_array($file_ext, $extensions) === false) {
-                $errors .= "Extension is not allowed, please choose a JPEG or PNG image.";
-            }
-            if (empty($errors) == true) {
-                move_uploaded_file($file_tmp, "files/" . $file_name);
-                return 1;
+        $file_type = $_FILES['profilePic']['type'];
+        $ext = explode('.', $_FILES['profilePic']['name']);
+        $file_ext = strtolower(end($ext));
+        $extensions = array("jpeg", "jpg", "png");
+        if (in_array($file_ext, $extensions) === false) {
+            $errors .= "Extension is not allowed, please choose a JPEG or PNG image.";
+        }
+        if (empty($errors) == true) {
 
+            if (move_uploaded_file($_FILES['profilePic']['tmp_name'], dirname(__DIR__, 1) . "/imag/" . basename($_FILES['profilePic']['name']))) {
+                echo "Uploaded";
             } else {
-                echo '<script>alert("extension not allowed, please choose a JPEG or PNG file.")</script>';
-                return 0;
+                echo "File was not uploaded";
             }
+
+            return 1;
+
         } else {
-            return 2;
+
+            echo '<script>alert("extension not allowed, please choose a JPEG or PNG file.")</script>';
+            return 0;
+            //  print_r($errors);
         }
     }
 }

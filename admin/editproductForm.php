@@ -27,12 +27,12 @@ if (isset($_POST['productname']) && isset($_POST['price']) && isset($_POST['avai
     if ($result) {
          echo "here";
        $dbs->closeDBConnection();
-       header("location: ./showproducts.php?success=1");
+       header("location: ./allProducts.php?success=1");
    }
    else{
         echo "here2";
        $dbs->closeDBConnection();
-       header("location: ./showproducts.php?error=4");
+       header("location: ./allProducts.php?error=4");
    }
 
   }
