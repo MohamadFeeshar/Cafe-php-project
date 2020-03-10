@@ -37,8 +37,8 @@ function renderUsers($users)
         echo '<td>'.$user['user_name'].'</td>';
         echo '<td>'.$user['room'].'</td>';
         if(empty($user['profile_pic'])!==true)
-        echo "<td> <img src= \"../imag/".$user['profile_pic']."\"/> </td>";
-        else  echo "<td> <img src= \"../imag/download.png\"/> </td>";
+        echo "<td> <img class=\"pic\" src= \"../imag/".$user['profile_pic']."\"/> </td>";
+        else  echo "<td> <img class=\"pic\" src= \"../imag/download.png\"/> </td>";
         echo '<td>'.$user['ext'].'</td>';
         echo "<td> <a href=\"edituser.php?id=".$user['user_id']."\"><button class='button updatebtn'> Update </button></a>";
         echo "<a href=\"deleteuser.php?id=".$user['user_id']."\"><button class='button deletebtn'> Delete  </button></a> </td>"; 
@@ -59,7 +59,7 @@ function renderUsers($users)
 <div class="main">
     <section>
         <h1 class="pageTitle"> All Users </h1>
-        <a href="adduser.php"><button class="addLink">add user ?</button> </a>
+        <a href="adduser.php"><button class="addLink">add user</button> </a>
         <br>
     </section>
     
@@ -73,6 +73,8 @@ function renderUsers($users)
     <?php
         if(isset($_GET['error']) && $_GET['error'] == 1){
             echo "Something went wrong";
+        }else if (isset($_GET['error']) && $_GET['error'] == 'duplicate'){
+            echo "duplicate entry please check data entered";
         }
     ?>
     </h2>
