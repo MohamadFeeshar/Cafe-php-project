@@ -331,20 +331,20 @@ class Database {
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":room", $room);
         $stmt->bindParam(":ext", $ext);
-        $stmt->bindParam(":profilePifc", $profilePic);
+        $stmt->bindParam(":profilePic", $profilePic);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $result=$stmt->rowCount();
         return $result;
     }
     public function updateUserWithPic($id, $username, $email, $room, $ext, $profilePic){
-        $sql = "UPDATE user SET user_name=:username, email=:email, user_password=:password, room=:room, ext=:ext, profile_pic=:profilePic WHERE user_id=:id";
+        $sql = "UPDATE user SET user_name=:username, email=:email, room=:room, ext=:ext, profile_pic=:profilePic WHERE user_id=:id";
         $stmt = $this->$connection->prepare($sql);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":room", $room);
         $stmt->bindParam(":ext", $ext);
-        $stmt->bindParam(":profilePifc", $profilePic);
+        $stmt->bindParam(":profilePic", $profilePic);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $result=$stmt->rowCount();
