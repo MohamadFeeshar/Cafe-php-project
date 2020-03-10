@@ -379,15 +379,25 @@ class Database {
     public function addUser($username, $email, $password, $room, $ext){
         $sql = "INSERT INTO user (user_name, email, user_password, room, ext, user_type) values(?,?,?,?,?,?)";
         $stmt = $this->$connection->prepare($sql);
-        $stmt->execute([$username, $email, $password, $room, $ext, "user"]);
-        $result=$stmt->rowCount();
+        try{
+            $stmt->execute([$username, $email, $password, $room, $ext, "user"]);
+            $result=$stmt->rowCount();
+        }
+        catch (Exception $e){
+            return false;
+        }
         return $result;
     }
     public function addUserWithPic($username, $email, $password, $room, $ext, $profilePic){
         $sql = "INSERT INTO user (user_name, email, user_password, room, ext, profile_pic, user_type) values(?,?,?,?,?,?,?)";
         $stmt = $this->$connection->prepare($sql);
-        $stmt->execute([$username, $email, $password, $room, $ext, $profilePic, "user"]);
-        $result=$stmt->rowCount();
+        try{
+            $stmt->execute([$username, $email, $password, $room, $ext, $profilePic, "user"]);
+            $result=$stmt->rowCount();
+        }
+        catch (Exception $e){
+            return false;
+        }
         return $result;
     }
     public function deleteOrder($id){

@@ -47,7 +47,6 @@ if (isset($_POST['username'])) {
         $dbs->closeDBConnection();
         header("location: ./showusers.php?success=1");
     } else {
-        echo "bang";
         $dbs->closeDBConnection();
         header("location: ./showusers.php?error=4");
     }
