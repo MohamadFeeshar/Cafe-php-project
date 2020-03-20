@@ -9,16 +9,14 @@ It is a Web Application for automating the ordering and management process of Ca
 2. Install **PHP 7.2+**
 3. Install **MySQL**
 4. Run **cafedb.sql** script for initializing the database.
+
    ```bash
 		mysql -u username -p < [path to cafedb.sql]
    ```
 
 ## Usage
 
-You need to place the project under *var/www/html/* so you can run it from localhost as
-	```bash
-		http://localhost/Cafe-php-project/
-	```
+You need to place the project under *var/www/html/* so you can run it from localhost as	*http://localhost/Cafe-php-project/*
 
 ## Admin Features 
 
