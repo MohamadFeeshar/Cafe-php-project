@@ -10,7 +10,7 @@ It is a Web Application for automating the ordering and management process of Ca
 3. Install **MySQL**
 4. Run **cafedb.sql** script for initializing the database.
    ```bash
-		mysql -u username -p < *path to cafedb.sql*
+		mysql -u username -p < [path to cafedb.sql]
    ```
 
 ## Usage
